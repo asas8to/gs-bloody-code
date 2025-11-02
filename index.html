@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <title>📘 شرح لينكس وآمن النظام</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
     body {
       background: linear-gradient(135deg, #0e0e1f, #1a1a3c);
       color: #fff;
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
+      padding: 0 0 120px 0; /* مكان للتوقيع الثابت */
       text-align: center;
     }
     header {
@@ -17,15 +18,53 @@
       padding: 30px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.6);
     }
-    header h1 { color: #00ffcc; font-size: 2.2em; }
+    header h1 { color: #00ffcc; font-size: 2.2em; margin:0; }
+    header p { margin:6px 0 0 0; color: #bff; }
     section { margin: 30px auto; width: 90%; max-width: 1000px; background: rgba(20,20,40,0.85); border-radius: 12px; padding: 20px; box-shadow: 0 6px 20px rgba(0,255,255,0.06); }
-    h2 { color: #ffd54a; }
+    h2 { color: #ffd54a; margin-top:0; }
     p, li { color: #ddd; font-size: 16px; line-height: 1.6; text-align: left; }
-    ul { text-align: left; max-width: 900px; margin: 10px auto 20px auto; }
+    ul { text-align: left; max-width: 900px; margin: 10px auto 20px auto; padding-left:18px; }
     code { background: #222; color: #8ef0d6; padding: 2px 6px; border-radius: 5px; }
     .box { background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); color:#eee; }
     footer { margin-top: 30px; padding: 14px; background:#0f0f14; color:#aaa; font-size:14px; }
-    a { color: #88f0ff; }
+
+    /* توقيع ثابت وواضح في أسفل الشاشة */
+    .signature-fixed {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 18px;
+      background: linear-gradient(90deg, rgba(0,255,204,0.08), rgba(255,213,74,0.06));
+      backdrop-filter: blur(6px);
+      border-radius: 14px;
+      padding: 10px 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      z-index: 9999;
+      min-width: 160px;
+    }
+    .signature-fixed .top-word {
+      font-weight: 800;
+      font-size: 20px;
+      color: #ffd54a;
+      letter-spacing: 0.6px;
+    }
+    .signature-fixed .sub {
+      font-size: 14px;
+      color: #00ffcc;
+      font-weight: 700;
+    }
+
+    /* نسخة صغيرة للهواتف */
+    @media (max-width:480px){
+      .signature-fixed { padding:8px 12px; min-width: 140px; bottom:12px; }
+      .signature-fixed .top-word { font-size:18px; }
+      .signature-fixed .sub { font-size:13px; }
+      body { padding-bottom:100px; }
+    }
   </style>
 </head>
 <body>
@@ -109,134 +148,23 @@
     </p>
   </section>
 
+  <!-- شهادة بسيطة -->
+  <section style="max-width:700px;margin:40px auto;padding:30px;background:linear-gradient(135deg,#0b0b12,#111428);border-radius:12px;text-align:center;color:#fff;">
+    <h2 style="margin:0 0 12px;font-size:28px;color:#ffd54a;">🎓 شكراً يا أستاذ</h2>
+    <p style="margin:0 0 18px;color:#cfeffd;">تقديراً لجهودك وتدريسَك المتميّز</p>
+    <div style="font-size:96px;font-weight:900;color:#00ffcc;text-shadow:0 6px 20px rgba(0,255,204,0.08);background:linear-gradient(180deg,#071218,#072028);display:inline-block;padding:20px 40px;border-radius:12px;">
+      100 خلي لي بشهاده🤣
+    </div>
+  </section>
+
+  <!-- توقيع ثابت وواضح (زائر الموقع يشوف "Dev" وفوقه برمجتي) -->
+  <div class="signature-fixed" role="contentinfo" aria-label="توقيع برمجي">
+    <div class="top-word">Dev</div>
+    <div class="sub">💻 برمجتي</div>
+  </div>
+
   <footer>
     © 2025 — شرح لينكس آمن ومبسط. إذا تريد أضيف تمارين تفاعلية (محاكية فقط) للطلاب، أقدر أجهزها بدون أي تعليمات ضارة.
   </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-<!-- ======= شرح مبسّط عن جهاز الحاسوب (أضفه قبل <footer>) ======= -->
-<section>
-  <h2>💡 ما هو جهاز الحاسوب؟ — شرح مبسّط</h2>
-  <p>
-    جهاز الحاسوب هو آلة إلكترونية تساعدنا على إنجاز الكثير من الأشياء بسرعة. مثلًا نقدر نكتب رسائل، نلعب ألعاب، نبحث عن معلومات، ونشاهد فيديو. 
-    الجهاز يتكوّن من أجزاء رئيسية تعمل معًا كي تخلّيه يشتغل.
-  </p>
-  <p>
-    أول جزء هو الـ <strong>المعالج (CPU)</strong> — هذا يشبه عقل الجهاز؛ هو الذي يقوم بحساب الأوامر ويُنفّذ التعليمات. كلما كان المعالج أسرع، كلما كان الجهاز أسرع في تنفيذ الأوامر.
-  </p>
-  <p>
-    الجزء الثاني هو الذاكرة العشوائية أو <strong>RAM</strong> — تشبه طاولة عمل مؤقتة. تخزّن هناك البيانات التي يعمل عليها الجهاز الآن. إذا كانت الذاكرة كبيرة، يقدر الجهاز يشغل برامج أكثر بنفس الوقت دون بطء.
-  </p>
-  <p>
-    ثالثًا هو التخزين الدائم (مثل القرص الصلب HDD أو الأقراص السريعة SSD) — هنا نخزن الملفات والصور والفيديوهات والبرامج بشكل دائم حتى بعد إطفاء الجهاز.
-  </p>
-  <p>
-    يوجد أيضًا <strong>نظام التشغيل (مثل ويندوز أو لينكس)</strong> — هذا البرنامج الرئيسي الذي يدير الجهاز ويتحكّم بكيف تفتح البرامج وتستخدم الأجهزة الأخرى مثل الطابعة أو المايكروفون.
-  </p>
-  <p>
-    أما الأجهزة الخارجية فهي مثل لوحة المفاتيح والفأرة والشاشة. هذه تُسمّى أجهزة الإدخال والإخراج لأننا ندخل المعلومات (لوحة المفاتيح) ونرى النتائج (الشاشة).
-  </p>
-  <p>
-    الحاسوب يتصل بالإنترنت عبر شبكة — وهذا يسمح له بجلب المعلومات من مواقع أخرى أو التحدّث مع أجهزة ثانية. الإنترنت مفيد لكن لازم نستخدمه بحذر ونحمي أجهزةنا.
-  </p>
-  <p>
-    أخيرًا، للحفاظ على الجهاز: حدّث البرامج بانتظام، استخدم كلمة مرور قوية، ولا تنحمل برامج من مواقع غير موثوقة. هذول خطوات بسيطة تساعد جهازك يشتغل بسرعة ويعيش طويلًا.
-  </p>
-</section>
-<!-- ======= نهاية الشرح ======= -->
-
-
-
-
-
-
-
-<!-- شهادة بسيطة -->
-<section style="max-width:700px;margin:40px auto;padding:30px;background:linear-gradient(135deg,#0b0b12,#111428);border-radius:12px;text-align:center;color:#fff;">
-  <h2 style="margin:0 0 12px;font-size:28px;color:#ffd54a;">🎓 شكراً يا أستاذ</h2>
-  <p style="margin:0 0 18px;color:#cfeffd;">تقديراً لجهودك وتدريسَك المتميّز</p>
-  <div style="font-size:96px;font-weight:900;color:#00ffcc;text-shadow:0 6px 20px rgba(0,255,204,0.08);background:linear-gradient(180deg,#071218,#072028);display:inline-block;padding:20px 40px;border-radius:12px;">
-    100 خلي لي بشهاده🤣
-  </div>
-</section>
-
-
-
-
-<!DOCTYPE html>هاذي برمجه
-<html lang="ar">
-<head>
-  <meta charset="UTF-8">
-  <title>📘 شرح لينكس وآمن النظام</title>
-  <style>
-    body {
-      background: linear-gradient(135deg, #0e0e1f, #1a1a3c);
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    header {
-      background: #111;
-      padding: 30px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-    }
-    header h1 { color: #00ffcc; font-size: 2.2em; }
-    section { margin: 30px auto; width: 90%; max-width: 1000px; background: rgba(20,20,40,0.85); border-radius: 12px; padding: 20px; box-shadow: 0 6px 20px rgba(0,255,255,0.06); }
-    h2 { color: #ffd54a; }
-    p, li { color: #ddd; font-size: 16px; line-height: 1.6; text-align: left; }
-    ul { text-align: left; max-width: 900px; margin: 10px auto 20px auto; }
-    code { background: #222; color: #8ef0d6; padding: 2px 6px; border-radius: 5px; }
-    .box { background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); color:#eee; }
-    footer { margin-top: 30px; padding: 14px; background:#0f0f14; color:#aaa; font-size:14px; }
-    a { color: #88f0ff; }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>🐧 لينكس بأمان — شرح مبسّط + كيف تحمي نظامك</h1>
-    <p>تعليم آمن ومناسب للمبتدئين — لا نشرح أي خطوات للاختراق</p>
-  </header>
-
-  <section>
-    <h2>ما هو لينكس؟</h2>
-    <p>
-      لينكس هو نظام تشغيل مجاني ومفتوح المصدر. يستخدمه المبرمجون ومشغلو الخوادم لأنّه قوي ومرن وآمن عندما يتم إعداده بشكل صحيح.
-      يمكنك استخدامه لتعلم البرمجة، تشغيل المواقع، وإدارة الخوادم.
-    </p>
-  </section>
-
-  <section>
-    <h2>أوامر بسيطة (تعليمية)</h2>
-    <p>أوامر قصيرة تساعدك تفهم بيئة لينكس (هذه أمثلة على أسماء الأوامر فقط):</p>
-    <ul>
-      <li><code>pwd</code> — يظهر أي مجلد أنت بداخله.</li>
-      <li><code>ls</code> — يعرض الملفات داخل المجلد.</li>
-      <li><code>cd</code> — يغير المجلد الحالي.</li>
-      <li><code>mkdir</code> — ينشئ مجلد جديد.</li>
-      <li><code>rm</code> — يحذف ملف (يُستخدم بحذر).</li>
-    </ul>
-    <div class="box">
-      <strong>تنبيه:</strong> هذه الأوامر للتعلّم فقط. احترس من حذف ملفات مهمة!
-    </div>
-  </section>
-
-  <section>
-    <h2>كيف قد يستغل المهاجمون نظام لينكس؟ (شرحٌ عام وآمن)</h2>
-    <p>لننبه: هذه النقاط وصفية للتوعية — ليست تعليمًا على كيفية الاختراق.</p>
-    <ul>
-      <li><strong>الاستفادة من البرامج القديمة أو غير المحدثة:</strong> إذا كان البرنامج أو النظام لم يتحدّث، يمكن أن يحتوي على ثغرات يستغلها المهاجمون.</li>
-      <li><strong>كلمات مرور ضعيفة أو مكررة:</strong> الحسابات التي تستخدم كلمات سر سهلة أو نفسها في أماكن كثيرة تكون هدفًا سهلاً.</li>
-      <li><strong>خدمات غير ضرورية مفتوحة على الإنترنت:</strong> ترك خدمات تعمل بدون حماية قد يسمح بالوصول غير المصرح به.</li>
-      <li><strong>التصيد والهندسة الاجتماعية:</strong> مهاجمون قد يخدعون المستخدم ليعطيهم بيانات دخول أو يضغط روابط خبيثة.</li>
-      <li><strong>حيل
