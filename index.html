@@ -1,172 +1,99 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>📘 شرح لينكس وآمن النظام</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <style>
-    body {
-      background: linear-gradient(135deg, #0e0e1f, #1a1a3c);
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0 0 120px 0; /* مكان للتوقيع الثابت */
-      text-align: center;
+<meta charset="UTF-8">
+<title>الفرق بين آيفون وأندرويد</title>
+<style>
+  body {
+    font-family: "Cairo", sans-serif;
+    background: linear-gradient(135deg, #0e0e1f, #1a1a3c);
+    color: #fff;
+    margin: 0;
+    padding: 30px;
+    text-align: center;
+  }
+  h1 {
+    color: #00ffcc;
+    margin-bottom: 10px;
+    font-size: 28px;
+  }
+  p {
+    color: #ccc;
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    text-align: center;
+  }
+  .card img {
+    width: 120px;
+    margin-bottom: 15px;
+  }
+  .iphone h2 {
+    color: #ffd54a;
+  }
+  .android h2 {
+    color: #00ffcc;
+  }
+  li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+    font-size: 15px;
+    text-align: left;
+  }
+  .note {
+    margin-top: 12px;
+    color: #aaa;
+    font-size: 14px;
+    background: rgba(255,255,255,0.03);
+    padding: 10px;
+    border-radius: 8px;
+  }
+  @media (max-width: 700px) {
+    .grid {
+      grid-template-columns: 1fr;
     }
-    header {
-      background: #111;
-      padding: 30px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-    }
-    header h1 { color: #00ffcc; font-size: 2.2em; margin:0; }
-    header p { margin:6px 0 0 0; color: #bff; }
-    section { margin: 30px auto; width: 90%; max-width: 1000px; background: rgba(20,20,40,0.85); border-radius: 12px; padding: 20px; box-shadow: 0 6px 20px rgba(0,255,255,0.06); }
-    h2 { color: #ffd54a; margin-top:0; }
-    p, li { color: #ddd; font-size: 16px; line-height: 1.6; text-align: left; }
-    ul { text-align: left; max-width: 900px; margin: 10px auto 20px auto; padding-left:18px; }
-    code { background: #222; color: #8ef0d6; padding: 2px 6px; border-radius: 5px; }
-    .box { background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); color:#eee; }
-    footer { margin-top: 30px; padding: 14px; background:#0f0f14; color:#aaa; font-size:14px; }
-
-    /* توقيع ثابت وواضح في أسفل الشاشة */
-    .signature-fixed {
-      position: fixed;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 18px;
-      background: linear-gradient(90deg, rgba(0,255,204,0.08), rgba(255,213,74,0.06));
-      backdrop-filter: blur(6px);
-      border-radius: 14px;
-      padding: 10px 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      z-index: 9999;
-      min-width: 160px;
-    }
-    .signature-fixed .top-word {
-      font-weight: 800;
-      font-size: 20px;
-      color: #ffd54a;
-      letter-spacing: 0.6px;
-    }
-    .signature-fixed .sub {
-      font-size: 14px;
-      color: #00ffcc;
-      font-weight: 700;
-    }
-
-    /* نسخة صغيرة للهواتف */
-    @media (max-width:480px){
-      .signature-fixed { padding:8px 12px; min-width: 140px; bottom:12px; }
-      .signature-fixed .top-word { font-size:18px; }
-      .signature-fixed .sub { font-size:13px; }
-      body { padding-bottom:100px; }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>🐧 لينكس بأمان — شرح مبسّط + كيف تحمي نظامك</h1>
-    <p>تعليم آمن ومناسب للمبتدئين — لا نشرح أي خطوات للاختراق</p>
-  </header>
 
-  <section>
-    <h2>ما هو لينكس؟</h2>
-    <p>
-      لينكس هو نظام تشغيل مجاني ومفتوح المصدر. يستخدمه المبرمجون ومشغلو الخوادم لأنّه قوي ومرن وآمن عندما يتم إعداده بشكل صحيح.
-      يمكنك استخدامه لتعلم البرمجة، تشغيل المواقع، وإدارة الخوادم.
-    </p>
-  </section>
+<h1>الفرق بين آيفون وأندرويد</h1>
+<p>هذا توضيح مبسط للفروقات بين نظام آيفون ونظام أندرويد.</p>
 
-  <section>
-    <h2>أوامر بسيطة (تعليمية)</h2>
-    <p>أوامر قصيرة تساعدك تفهم بيئة لينكس (هذه أمثلة على أسماء الأوامر فقط):</p>
+<div class="grid">
+  <div class="card iphone">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/IPhone_12_Pro_vector.svg" alt="آيفون">
+    <h2>📱 آيفون</h2>
     <ul>
-      <li><code>pwd</code> — يظهر أي مجلد أنت بداخله.</li>
-      <li><code>ls</code> — يعرض الملفات داخل المجلد.</li>
-      <li><code>cd</code> — يغير المجلد الحالي.</li>
-      <li><code>mkdir</code> — ينشئ مجلد جديد.</li>
-      <li><code>rm</code> — يحذف ملف (يُستخدم بحذر).</li>
+      <li>نظام منظم وسهل الاستخدام.</li>
+      <li>تحديثات النظام تصل لجميع الأجهزة في نفس الوقت.</li>
+      <li>حماية البيانات والخصوصية قوية.</li>
+      <li>خيارات التخصيص محدودة.</li>
+      <li>أسعاره مرتفعة مقارنة ببعض الأجهزة الأخرى.</li>
     </ul>
-    <div class="box">
-      <strong>تنبيه:</strong> هذه الأوامر للتعلّم فقط. احترس من حذف ملفات مهمة!
-    </div>
-  </section>
-
-  <section>
-    <h2>كيف قد يستغل المهاجمون نظام لينكس؟ (شرحٌ عام وآمن)</h2>
-    <p>لننبه: هذه النقاط وصفية للتوعية — ليست تعليمًا على كيفية الاختراق.</p>
-    <ul>
-      <li><strong>الاستفادة من البرامج القديمة أو غير المحدثة:</strong> إذا كان البرنامج أو النظام لم يتحدّث، يمكن أن يحتوي على ثغرات يستغلها المهاجمون.</li>
-      <li><strong>كلمات مرور ضعيفة أو مكررة:</strong> الحسابات التي تستخدم كلمات سر سهلة أو نفسها في أماكن كثيرة تكون هدفًا سهلاً.</li>
-      <li><strong>خدمات غير ضرورية مفتوحة على الإنترنت:</strong> ترك خدمات تعمل بدون حماية قد يسمح بالوصول غير المصرح به.</li>
-      <li><strong>التصيد والهندسة الاجتماعية:</strong> مهاجمون قد يخدعون المستخدم ليعطيهم بيانات دخول أو يضغط روابط خبيثة.</li>
-      <li><strong>حيل التكوين الخاطئ (Misconfiguration):</strong> إعداد خاطئ للخوادم أو الصلاحيات قد يسهّل الوصول للملفات المهمة.</li>
-    </ul>
-    <div class="box">
-      الهدف من معرفة هذه الطرق هو أن <strong>تعرف تحمي نظامك</strong> وتمنع المهاجمين من النجاح.
-    </div>
-  </section>
-
-  <section>
-    <h2>كيف تحمي نظام لينكس بشكل عملي (إجراءات آمنة)</h2>
-    <p>نصائح عملية وسهلة التطبيق لحماية جهازك أو الخادم:</p>
-    <ul>
-      <li><strong>حدّث النظام والبرامج دائمًا:</strong> التحديثات تصلح ثغرات أمنيّة.</li>
-      <li><strong>استخدم كلمات مرور قوية ومختلفة:</strong> وفعل المصادقة الثنائية (2FA) حيثما أمكن.</li>
-      <li><strong>أوقف الخدمات غير المستخدمة:</strong> لا تشغّل برامج على الإنترنت لا تحتاجها.</li>
-      <li><strong>قلل الصلاحيات:</strong> استخدم حساب عادي للعمل اليومي ولا تعمل كـ مشرف إلا عند الحاجة.</li>
-      <li><strong>فعل جدار حماية (Firewall):</strong> حدّد المنافذ المسموح بها فقط.</li>
-      <li><strong>نسخ احتياطي دوري:</strong> احفظ نسخة من ملفاتك المهمة خارج الجهاز.</li>
-      <li><strong>مراقبة السجلات (logs):</strong> راجع سجلات النظام بانتظام لاكتشاف أي نشاط غريب.</li>
-      <li><strong>تعلم أساسيات الأمن:</strong> اقرأ مصادر تعليمية آمنة وتدرّب في بيئات مخصصة (مثل مختبرات تعليمية أو منصّات تعليمية).</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>الموارد لتعلّم الأمن السيبراني بشكل أخلاقي</h2>
-    <p>مصادر مفيدة ومناسبة للمبتدئين (تعلم آمن ومشروع):</p>
-    <ul>
-      <li>دورات تمهيدية عن أنظمة التشغيل ولينكس على منصات تعليمية مشهورة (ابحث عن "Linux for beginners").</li>
-      <li>منصات تدريب قانونية لاختبار المهارات (تدريبات CTF أخلاقية في بيئات محمية).</li>
-      <li>كتب ومقالات عن "Hardening Linux" و"Security best practices".</li>
-      <li>تعلم استخدام النسخ الاحتياطي، إدارة الصلاحيات، وتحديث الأنظمة بانتظام.</li>
-    </ul>
-    <div class="box">
-      تذكير: إذا حاب تتعلم الأمان المتقدّم، التحق بدورات رسمية أو برامج شهادات، وتعلّم فقط في بيئات قانونية وأخلاقية.
-    </div>
-  </section>
-
-  <section>
-    <h2>خلاصة بسيطة</h2>
-    <p>
-      لينكس ممتاز للتعلّم والعمل، ومع معرفة بسيطة بالإجراءات الأمنية تقدر تحمي جهازك أو سيرفرك.  
-      الهدف هنا هو التوعية والحماية — لا تشجّع على أي استخدام ضار أو خبيث.
-    </p>
-  </section>
-
-  <!-- شهادة بسيطة -->
-  <section style="max-width:700px;margin:40px auto;padding:30px;background:linear-gradient(135deg,#0b0b12,#111428);border-radius:12px;text-align:center;color:#fff;">
-    <h2 style="margin:0 0 12px;font-size:28px;color:#ffd54a;">🎓 شكراً يا أستاذ</h2>
-    <p style="margin:0 0 18px;color:#cfeffd;">تقديراً لجهودك وتدريسَك المتميّز</p>
-    <div style="font-size:96px;font-weight:900;color:#00ffcc;text-shadow:0 6px 20px rgba(0,255,204,0.08);background:linear-gradient(180deg,#071218,#072028);display:inline-block;padding:20px 40px;border-radius:12px;">
-     استاذ حاولت اقلد كلام الكتب----- اريد 100% بالشهادة
-    </div>
-  </section>
-
-  <!-- توقيع ثابت وواضح (زائر الموقع يشوف "Dev" وفوقه برمجتي) -->
-  <div class="signature-fixed" role="contentinfo" aria-label="توقيع برمجي">
-    <div class="top-word">Dev</div>
-    <div class="sub">💻 برمجتي</div>
+    <div class="note">آيفون مناسب لمن يريد جهاز ثابت وسلس.</div>
   </div>
 
-  <footer>
-    © 2025 — شرح لينكس آمن ومبسط. إذا تريد أضيف تمارين تفاعلية (محاكية فقط) للطلاب، أقدر أجهزها بدون أي تعليمات ضارة.
-  </footer>
-</body>
-</html>
-
-
+  <div class="card android">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Android_robot.svg" alt="أندرويد">
+    <h2>🤖 أندرويد</h2>
+    <ul>
+      <li>يمكنك تغييره وتخصيصه كثيرًا حسب رغبتك.</li>
+      <li>أسعار مختلفة حسب نوع الجهاز.</li>
+      <li>قد يكون بعض الأجهزة بطيئة إذا كان النظام ثقيل أو الجهاز ضعيف.</li>
+      <li>تحديثات النظام أحيانًا تأتي متأخرة حسب الشركة.</li>
+      <li>يمكن تثبيت التطبيقات من مصادر مختلفة.</li>
+    </ul>
+    <div class="note">أندرويد مناسب لمن يحب الحرية في التحكم والتخصيص.</
