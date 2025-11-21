@@ -1,101 +1,60 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<title>الفرق بين آيفون وأندرويد</title>
-<style>
-  body {
-    font-family: "Cairo", sans-serif;
-    background: linear-gradient(135deg, #0e0e1f, #1a1a3c);
-    color: #fff;
-    margin: 0;
-    padding: 30px;
-    text-align: center;
-  }
-  h1 {
-    color: #00ffcc;
-    margin-bottom: 10px;
-    font-size: 28px;
-  }
-  p {
-    color: #ccc;
-    margin-bottom: 30px;
-    font-size: 16px;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .card {
-    background: rgba(255,255,255,0.05);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-    text-align: center;
-  }
-  .card img {
-    width: 120px;
-    margin-bottom: 15px;
-  }
-  .iphone h2 {
-    color: #ffd54a;
-  }
-  .android h2 {
-    color: #00ffcc;
-  }
-  li {
-    margin-bottom: 8px;
-    line-height: 1.6;
-    font-size: 15px;
-    text-align: left;
-  }
-  .note {
-    margin-top: 12px;
-    color: #aaa;
-    font-size: 14px;
-    background: rgba(255,255,255,0.03);
-    padding: 10px;
-    border-radius: 8px;
-  }
-  @media (max-width: 700px) {
-    .grid {
-      grid-template-columns: 1fr;
+<h1>Hello World</h1>import tkinter as tk
+
+def say_hello():
+    label.config(text="مرحباً بك في ويندوز!")
+
+root = tk.Tk()
+root.title("برنامج يعمل على كل إصدارات Windows")
+root.geometry("300x200")
+
+button = tk.Button(root, text="اضغط هنا", command=say_hello)
+button.pack(pady=20)
+
+label = tk.Label(root, text="")
+label.pack()
+
+root.mainloop()using System;
+using System.Windows.Forms;
+
+namespace WindowsApp
+{
+    public class Program : Form
+    {
+        private Button btn;
+
+        public Program()
+        {
+            btn = new Button();
+            btn.Text = "اضغط";
+            btn.Click += (s, e) => MessageBox.Show("مرحباً! يعمل على كل Windows");
+            Controls.Add(btn);
+        }
+
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.Run(new Program());
+        }
     }
-  }
-</style>
-</head>
-<body>
+}#include <iostream>
+using namespace std;
 
-<h1>الفرق بين آيفون وأندرويد</h1>
-<p>هذا توضيح مبسط للفروقات بين نظام آيفون ونظام أندرويد.</p>
+int main() {
+    cout << "برنامج يعمل على جميع أنواع Windows" << endl;
+    system("pause");
+    return 0;
+}#include <iostream>
+using namespace std;
 
-<div class="grid">
-  <div class="card iphone">
-   
-    <h2>📱 آيفون</h2>
-    <ul>
-      <li>نظام منظم وسهل الاستخدام.</li>
-      <li>تحديثات النظام تصل لجميع الأجهزة في نفس الوقت.</li>
-      <li>حماية البيانات والخصوصية قوية.</li>
-      <li>خيارات التخصيص محدودة.</li>
-      <li>أسعاره مرتفعة مقارنة ببعض الأجهزة الأخرى.</li>
-    </ul>
-    <div class="note">آيفون مناسب لمن يريد جهاز ثابت وسلس.</div>
-  </div>
+int main() {
+    cout << "برنامج يعمل على جميع أنواع Windows" << endl;
+    system("pause");
+    return 0;
+}
 
-  <div class="card android">
+November 20, 2025 22:38
 
-    <h2>🤖 أندرويد</h2>
-    <ul>
-      <li>يمكنك تغييره وتخصيصه كثيرًا حسب رغبتك.</li>
-      <li>أسعار مختلفة حسب نوع الجهاز.</li>
-      <li>قد يكون بعض الأجهزة بطيئة إذا كان النظام ثقيل أو الجهاز ضعيف.</li>
-      <li>تحديثات النظام أحيانًا تأتي متأخرة حسب الشركة.</li>
-      <li>يمكن تثبيت التطبيقات من مصادر مختلفة.</li>
-    </ul>
-    <div class="note">أندرويد مناسب لمن يحب الحرية في التحكم والتخصيص.</
-
-
+<!DOCTYPE html><html><head><title>Google Drive - Virus scan warning</title><meta http-equiv="content-type" content="text/html; charset=utf-8"/><style nonce="8j0o7gwXSnjtIITecpII3g">.goog-link-button{position:relative;color:#15c;text-decoration:underline;cursor:pointer}.goog-link-button-disabled{color:#ccc;text-decoration:none;cursor:default}body{color:#222;font:normal 13px/1.4 arial,sans-serif;margin:0}.grecaptcha-badge{visibility:hidden}.uc-main{padding-top:50px;text-align:center}#uc-dl-icon{display:inline-block;margin-top:16px;padding-right:1em;vertical-align:top}#uc-text{display:inline-block;max-width:68ex;text-align:left}.uc-error-caption,.uc-warning-caption{color:#222;font-size:16px}#uc-download-link{text-decoration:none}.uc-name-size a{color:#15c;text-decoration:none}.uc-name-size a:visited{color:#61c;text-decoration:none}.uc-name-size a:active{color:#d14836;text-decoration:none}.uc-footer{color:#777;font-size:11px;padding-bottom:5ex;padding-top:5ex;text-align:center}.uc-footer a{color:#15c}.uc-footer a:visited{color:#61c}.uc-footer a:active{color:#d14836}.uc-footer-divider{color:#ccc;width:100%}.goog-inline-block{position:relative;display:-moz-inline-box;display:inline-block}* html .goog-inline-block{display:inline}*:first-child+html .goog-inline-block{display:inline}sentinel{}</style><link rel="icon" href="//ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png"/></head><body><div class="uc-main"><div id="uc-dl-icon" class="image-container"><div class="drive-sprite-aux-download-file"></div></div><div id="uc-text"><p class="uc-warning-caption">Google Drive can't scan this file for viruses.</p><p class="uc-warning-subcaption"><span class="uc-name-size"><a href="/open?id=1vkVg6VnWgWURKbL0nwhhWRLSfG5vlp7O">SDK5.6.rar</a> (1.3G)</span> is too large for Google to scan for viruses. Would you still like to download this file?</p><form id="download-form" action="https://drive.usercontent.google.com/download" method="get"><input type="submit" id="uc-download-link" class="goog-inline-block jfk-button jfk-button-action" value="Download anyway"/><input type="hidden" name="id" value="1vkVg6VnWgWURKbL0nwhhWRLSfG5vlp7O"><input type="hidden" name="export" value="download"><input type="hidden" name="confirm" value="t"><input type="hidden" name="uuid" value="ba3c44bd-57b4-492c-a602-4084a247a647"></form></div></div><div class="uc-footer"><hr class="uc-footer-divider"></div></body></html>
+<!DOCTYPE html><html><head><title>Google Drive - Virus scan warning</title><meta http-equiv="content-type" content="text/html; charset=utf-8"/><style nonce="8j0o7gwXSnjtIITecpII3g">.goog-link-button{position:relative;color:#15c;text-decoration:underline;cursor:pointer}.goog-link-button-disabled{color:#ccc;text-decoration:none;cursor:default}body{color:#222;font:normal 13px/1.4 arial,sans-serif;margin:0}.grecaptcha-badge{visibility:hidden}.uc-main{padding-top:50px;text-align:center}#uc-dl-icon{display:inline-block;margin-top:16px;padding-right:1em;vertical-align:top}#uc-text{display:inline-block;max-width:68ex;text-align:left}.uc-error-caption,.uc-warning-caption{color:#222;font-size:16px}#uc-download-link{text-decoration:none}.uc-name-size a{color:#15c;text-decoration:none}.uc-name-size a:visited{color:#61c;text-decoration:none}.uc-name-size a:active{color:#d14836;text-decoration:none}.uc-footer{color:#777;font-size:11px;padding-bottom:5ex;padding-top:5ex;text-align:center}.uc-footer a{color:#15c}.uc-footer a:visited{color:#61c}.uc-footer a:active{color:#d14836}.uc-footer-divider{color:#ccc;width:100%}.goog-inline-block{position:relative;display:-moz-inline-box;display:inline-block}* html .goog-inline-block{display:inline}*:first-child+html .goog-inline-block{display:inline}sentinel{}</style><link rel="icon" href="//ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png"/></head><body><div class="uc-main"><div id="uc-dl-icon" class="image-container"><div class="drive-sprite-aux-download-file"></div></div><div id="uc-text"><p class="uc-warning-caption">Google Drive can't scan this file for viruses.</p><p class="uc-warning-subcaption"><span class="uc-name-size"><a href="/open?id=1vkVg6VnWgWURKbL0nwhhWRLSfG5vlp7O">SDK5.6.rar</a> (1.3G)</span> is too large for Google to scan for viruses. Would you still like to download this file?</p><form id="download-form" action="https://drive.usercontent.google.com/download" method="get"><input type="submit" id="uc-download-link" class="goog-inline-block jfk-button jfk-button-action" value="Download anyway"/><input type="hidden" name="id" value="1vkVg6VnWgWURKbL0nwhhWRLSfG5vlp7O"><input type="hidden" name="export" value="download"><input type="hidden" name="confirm" value="t"><input type="hidden" name="uuid" value="ba3c44bd-57b4-492c-a602-4084a247a647"></form></div></div><div class="uc-footer"><hr class="uc-footer-divider"></div></body></html>
+ 
