@@ -1,60 +1,88 @@
-<h1>Hello World</h1>import tkinter as tk
-
-def say_hello():
-    label.config(text="مرحباً بك في ويندوز!")
-
-root = tk.Tk()
-root.title("برنامج يعمل على كل إصدارات Windows")
-root.geometry("300x200")
-
-button = tk.Button(root, text="اضغط هنا", command=say_hello)
-button.pack(pady=20)
-
-label = tk.Label(root, text="")
-label.pack()
-
-root.mainloop()using System;
-using System.Windows.Forms;
-
-namespace WindowsApp
-{
-    public class Program : Form
-    {
-        private Button btn;
-
-        public Program()
-        {
-            btn = new Button();
-            btn.Text = "اضغط";
-            btn.Click += (s, e) => MessageBox.Show("مرحباً! يعمل على كل Windows");
-            Controls.Add(btn);
-        }
-
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.Run(new Program());
-        }
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>شلون نسوي الألعاب | إعداد: كرار حيدر — عباس علاء</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      direction: rtl;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      color: #222;
     }
-}#include <iostream>
-using namespace std;
 
-int main() {
-    cout << "برنامج يعمل على جميع أنواع Windows" << endl;
-    system("pause");
-    return 0;
-}#include <iostream>
-using namespace std;
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
 
-int main() {
-    cout << "برنامج يعمل على جميع أنواع Windows" << endl;
-    system("pause");
-    return 0;
-}
+    h1, h2 {
+      color: #333;
+    }
 
-November 20, 2025 22:38
+    button {
+      padding: 10px 20px;
+      background: #0a74d3;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      font-size: 16px;
+    }
 
-<!DOCTYPE html><html><head><title>Google Drive - Virus scan warning</title><meta http-equiv="content-type" content="text/html; charset=utf-8"/><style nonce="8j0o7gwXSnjtIITecpII3g">.goog-link-button{position:relative;color:#15c;text-decoration:underline;cursor:pointer}.goog-link-button-disabled{color:#ccc;text-decoration:none;cursor:default}body{color:#222;font:normal 13px/1.4 arial,sans-serif;margin:0}.grecaptcha-badge{visibility:hidden}.uc-main{padding-top:50px;text-align:center}#uc-dl-icon{display:inline-block;margin-top:16px;padding-right:1em;vertical-align:top}#uc-text{display:inline-block;max-width:68ex;text-align:left}.uc-error-caption,.uc-warning-caption{color:#222;font-size:16px}#uc-download-link{text-decoration:none}.uc-name-size a{color:#15c;text-decoration:none}.uc-name-size a:visited{color:#61c;text-decoration:none}.uc-name-size a:active{color:#d14836;text-decoration:none}.uc-footer{color:#777;font-size:11px;padding-bottom:5ex;padding-top:5ex;text-align:center}.uc-footer a{color:#15c}.uc-footer a:visited{color:#61c}.uc-footer a:active{color:#d14836}.uc-footer-divider{color:#ccc;width:100%}.goog-inline-block{position:relative;display:-moz-inline-box;display:inline-block}* html .goog-inline-block{display:inline}*:first-child+html .goog-inline-block{display:inline}sentinel{}</style><link rel="icon" href="//ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png"/></head><body><div class="uc-main"><div id="uc-dl-icon" class="image-container"><div class="drive-sprite-aux-download-file"></div></div><div id="uc-text"><p class="uc-warning-caption">Google Drive can't scan this file for viruses.</p><p class="uc-warning-subcaption"><span class="uc-name-size"><a href="/open?id=1vkVg6VnWgWURKbL0nwhhWRLSfG5vlp7O">SDK5.6.rar</a> (1.3G)</span> is too large for Google to scan for viruses. Would you still like to download this file?</p><form id="download-form" action="https://drive.usercontent.google.com/download" method="get"><input type="submit" id="uc-download-link" class="goog-inline-block jfk-button jfk-button-action" value="Download anyway"/><input type="hidden" name="id" value="1vkVg6VnWgWURKbL0nwhhWRLSfG5vlp7O"><input type="hidden" name="export" value="download"><input type="hidden" name="confirm" value="t"><input type="hidden" name="uuid" value="ba3c44bd-57b4-492c-a602-4084a247a647"></form></div></div><div class="uc-footer"><hr class="uc-footer-divider"></div></body></html>
-<!DOCTYPE html><html><head><title>Google Drive - Virus scan warning</title><meta http-equiv="content-type" content="text/html; charset=utf-8"/><style nonce="8j0o7gwXSnjtIITecpII3g">.goog-link-button{position:relative;color:#15c;text-decoration:underline;cursor:pointer}.goog-link-button-disabled{color:#ccc;text-decoration:none;cursor:default}body{color:#222;font:normal 13px/1.4 arial,sans-serif;margin:0}.grecaptcha-badge{visibility:hidden}.uc-main{padding-top:50px;text-align:center}#uc-dl-icon{display:inline-block;margin-top:16px;padding-right:1em;vertical-align:top}#uc-text{display:inline-block;max-width:68ex;text-align:left}.uc-error-caption,.uc-warning-caption{color:#222;font-size:16px}#uc-download-link{text-decoration:none}.uc-name-size a{color:#15c;text-decoration:none}.uc-name-size a:visited{color:#61c;text-decoration:none}.uc-name-size a:active{color:#d14836;text-decoration:none}.uc-footer{color:#777;font-size:11px;padding-bottom:5ex;padding-top:5ex;text-align:center}.uc-footer a{color:#15c}.uc-footer a:visited{color:#61c}.uc-footer a:active{color:#d14836}.uc-footer-divider{color:#ccc;width:100%}.goog-inline-block{position:relative;display:-moz-inline-box;display:inline-block}* html .goog-inline-block{display:inline}*:first-child+html .goog-inline-block{display:inline}sentinel{}</style><link rel="icon" href="//ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png"/></head><body><div class="uc-main"><div id="uc-dl-icon" class="image-container"><div class="drive-sprite-aux-download-file"></div></div><div id="uc-text"><p class="uc-warning-caption">Google Drive can't scan this file for viruses.</p><p class="uc-warning-subcaption"><span class="uc-name-size"><a href="/open?id=1vkVg6VnWgWURKbL0nwhhWRLSfG5vlp7O">SDK5.6.rar</a> (1.3G)</span> is too large for Google to scan for viruses. Would you still like to download this file?</p><form id="download-form" action="https://drive.usercontent.google.com/download" method="get"><input type="submit" id="uc-download-link" class="goog-inline-block jfk-button jfk-button-action" value="Download anyway"/><input type="hidden" name="id" value="1vkVg6VnWgWURKbL0nwhhWRLSfG5vlp7O"><input type="hidden" name="export" value="download"><input type="hidden" name="confirm" value="t"><input type="hidden" name="uuid" value="ba3c44bd-57b4-492c-a602-4084a247a647"></form></div></div><div class="uc-footer"><hr class="uc-footer-divider"></div></body></html>
- 
+    button:hover {
+      background: #0859a1;
+    }
+
+    #steps {
+      margin-top: 10px;
+      padding: 10px;
+      background: #fff8d6;
+      border-radius: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>شلون نسوي لعبة؟</h1>
+    <p>إعداد الطلاب: <strong>كرار حيدر — عباس علاء</strong></p>
+  </div>
+
+  <div class="card">
+    <h2>شرح مبسّط عن صناعة الألعاب:</h2>
+    <p>
+      صناعة الألعاب عدنا بيها مراحل واضحة، وكل مرحلة تعتمد على الثانية.  
+      بالأسفل رح نشرحلكم بطريقة سهلة حتى أي طالب يفهم الأساسيات.
+    </p>
+
+    <button onclick="showSteps()">اظهر خطوات صناعة اللعبة</button>
+
+    <div id="steps">
+      <h3>الخطوات الأساسية:</h3>
+      <ol>
+        <li>📌 <strong>فكرة اللعبة</strong> — نختار نوع اللعبة (منصات، سباق، ألغاز، قتال...).</li>
+        <li>📌 <strong>تصميم الشخصيات</strong> — نرسم البطل، الخصوم، والبيئة.</li>
+        <li>📌 <strong>البرمجة</strong> — نكتب الأكواد اللي تخلي اللعبة تتحرك وتشتغل.</li>
+        <li>📌 <strong>الصوتيات</strong> — نضيف موسيقى وتأثيرات.</li>
+        <li>📌 <strong>الاختبار</strong> — نجرب اللعبة ونصلّح أي خطأ.</li>
+        <li>📌 <strong>النشر</strong> — نرفع اللعبة للناس حتى يجربوها.</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    function showSteps() {
+      const s = document.getElementById("steps");
+      s.style.display = (s.style.display === "none") ? "block" : "none";
+    }
+  </script>
+
+</body>
+</html>
