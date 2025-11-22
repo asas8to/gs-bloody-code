@@ -1,178 +1,180 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-  <meta charset="UTF-8">
-  <title>شلون نسوي الألعاب | إعداد: كرار حيدر — عباس علاء</title>
+#!/usr/bin/env python3
+"""
+TeacherPy - a tiny language interpreter written in Python.
 
-  <style>
-    body {
-      font-family: Tahoma, sans-serif;
-      direction: rtl;
-      background: #e9eef3;
-      margin: 0;
-      padding: 0;
-      color: #222;
-    }
+Syntax highlights:
+- Comments start with # 
+- Assignment:    x = 5
+- Print:         print x, "text", (1+2)
+- If:            if (x > 0) { ... } else { ... }
+- While:         while (x < 10) { ... }
+- Blocks use { } and can contain multiple statements.
+- Expressions: numbers, strings "..." , variables, + - * / % == != < <= >= and parentheses.
+"""
 
-    /* الهيدر */
-    header {
-      background: #0a74d3;
-      padding: 15px;
-      color: white;
-      text-align: center;
-      font-size: 22px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-    }
+import re
+import sys
 
-    .container {
-      padding: 20px;
-    }
+# ---------- Lexer ----------
+TOKEN_SPEC = [
+    ('NUMBER',   r'\d+(\.\d+)?'),
+    ('STRING',   r'"([^"\\]|\\.)*"'),
+    ('ID',       r'[A-Za-z_][A-Za-z0-9_]*'),
+    ('OP',       r'==|!=|<=|>=|[+\-*/%<>=]'),
+    ('LPAREN',   r'\('),
+    ('RPAREN',   r'\)'),
+    ('LBRACE',   r'\{'),
+    ('RBRACE',   r'\}'),
+    ('COMMA',    r','),
+    ('NEWLINE',  r'\n'),
+    ('SKIP',     r'[ \t]+'),
+    ('MISMATCH', r'.'),
+]
+TOK_REGEX = re.compile('|'.join('(?P<%s>%s)' % pair for pair in TOKEN_SPEC))
 
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-      animation: fadeIn 0.7s;
-    }
+KEYWORDS = {'print', 'if', 'else', 'while'}
 
-    h1, h2 {
-      color: #333;
-    }
+class Token:
+    def __init__(self, typ, val):
+        self.type = typ
+        self.val = val
+    def __repr__(self):
+        return f"Token({self.type},{self.val})"
 
-    /* أزرار */
-    button {
-      padding: 10px 20px;
-      background: #0a74d3;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 8px;
-      font-size: 16px;
-      transition: 0.2s;
-    }
+def lex(text):
+    pos = 0
+    tokens = []
+    while pos < len(text):
+        m = TOK_REGEX.match(text, pos)
+        if not m:
+            raise SyntaxError(f"Unexpected char at {pos}")
+        kind = m.lastgroup
+        val = m.group(kind)
+        pos = m.end()
+        if kind == 'NUMBER':
+            tokens.append(Token('NUMBER', float(val) if '.' in val else int(val)))
+        elif kind == 'STRING':
+            # remove quotes and handle escapes
+            s = val[1:-1].encode('utf-8').decode('unicode_escape')
+            tokens.append(Token('STRING', s))
+        elif kind == 'ID':
+            if val in KEYWORDS:
+                tokens.append(Token(val.upper(), val))
+            else:
+                tokens.append(Token('ID', val))
+        elif kind == 'OP':
+            tokens.append(Token('OP', val))
+        elif kind in ('LPAREN','RPAREN','LBRACE','RBRACE','COMMA'):
+            tokens.append(Token(kind, val))
+        elif kind == 'NEWLINE':
+            tokens.append(Token('NEWLINE', val))
+        elif kind == 'SKIP':
+            continue
+        elif kind == 'MISMATCH':
+            if val == '#':
+                # comment: skip till end of line
+                while pos < len(text) and text[pos] != '\n':
+                    pos += 1
+                continue
+            raise SyntaxError(f"Unexpected token: {val}")
+    tokens.append(Token('EOF', None))
+    return tokens
 
-    button:hover {
-      background: #0859a1;
-      transform: scale(1.05);
-    }
+# ---------- Parser (simple statement-level parser) ----------
+class Parser:
+    def __init__(self, tokens):
+        self.tokens = tokens
+        self.i = 0
 
-    /* صندوق الخطوات */
-    #steps {
-      margin-top: 10px;
-      padding: 10px;
-      background: #fff8d6;
-      border-radius: 10px;
-      display: none;
-      animation: fadeIn 0.8s;
-    }
+    def cur(self):
+        return self.tokens[self.i]
+    def eat(self, ttype=None):
+        tok = self.cur()
+        if ttype and tok.type != ttype:
+            raise SyntaxError(f"Expected {ttype}, got {tok.type}")
+        self.i += 1
+        return tok
 
-    /* كويز */
-    .quiz-box {
-      background: #f4fbff;
-      padding: 15px;
-      border-radius: 10px;
-    }
+    # Pratt-like expression parser using operator precedence (shunting-yard approach inside)
+    def parse_expression(self):
+        # convert token stream for expression into RPN using shunting-yard
+        outq = []
+        opstack = []
 
-    .result {
-      margin-top: 10px;
-      font-weight: bold;
-    }
+        def precedence(op):
+            if op in ('==','!=','<','>','<=','>='): return 2
+            if op in ('+','-'): return 3
+            if op in ('*','/','%'): return 4
+            return 0
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
-</head>
+        def push_op(op):
+            while opstack and opstack[-1] != '(' and precedence(opstack[-1]) >= precedence(op):
+                outq.append(('OP', opstack.pop()))
+            opstack.append(op)
 
-<body>
+        while True:
+            tok = self.cur()
+            if tok.type == 'NUMBER' or tok.type == 'STRING':
+                outq.append((tok.type, tok.val)); self.i += 1
+            elif tok.type == 'ID':
+                outq.append(('ID', tok.val)); self.i += 1
+            elif tok.type == 'LPAREN':
+                opstack.append('('); self.i += 1
+            elif tok.type == 'RPAREN':
+                while opstack and opstack[-1] != '(':
+                    outq.append(('OP', opstack.pop()))
+                if not opstack: raise SyntaxError("Mismatched )")
+                opstack.pop()  # pop '('
+                self.i += 1
+            elif tok.type == 'OP':
+                push_op(tok.val); self.i += 1
+            else:
+                break
+        while opstack:
+            op = opstack.pop()
+            if op == '(':
+                raise SyntaxError("Mismatched (")
+            outq.append(('OP', op))
+        return ('RPN', outq)
 
-<header>
-  🌟 موقع تعليمي — صناعة الألعاب | إعداد: كرار حيدر & عباس علاء 🌟
-</header>
+    def parse_statement(self):
+        tok = self.cur()
 
-<div class="container">
+        # empty/newline skip
+        if tok.type == 'NEWLINE':
+            self.eat('NEWLINE')
+            return None
 
-  <div class="card">
-    <h1>شلون نسوي لعبة؟</h1>
-    <p>إعداد الطلاب: <strong>كرار حيدر — عباس علاء</strong></p>
-  </div>
+        # print statement
+        if tok.type == 'PRINT':
+            self.eat('PRINT')
+            expr = self.parse_expression()
+            # optional newline
+            if self.cur().type == 'NEWLINE':
+                self.eat('NEWLINE')
+            return ('PRINT', expr)
 
-  <div class="card">
-    <h2>شرح مبسّط عن صناعة الألعاب:</h2>
-    <p>صناعة الألعاب بيها مراحل واضحة، وكل مرحلة تعتمد عالثانية، ولتسهيل الموضوع سوّينا شرح بسيط يفيد الطلاب والمعلمين.</p>
+        # if statement: if (expr) { block } [else { block }]
+        if tok.type == 'IF':
+            self.eat('IF')
+            # expect LPAREN
+            if self.cur().type == 'LPAREN': self.eat('LPAREN')
+            cond = self.parse_expression()
+            if self.cur().type == 'RPAREN': self.eat('RPAREN')
+            if self.cur().type != 'LBRACE':
+                raise SyntaxError("Expected { after if condition")
+            then_block = self.parse_block()
+            else_block = None
+            if self.cur().type == 'ELSE':
+                self.eat('ELSE')
+                if self.cur().type != 'LBRACE':
+                    raise SyntaxError("Expected { after else")
+                else_block = self.parse_block()
+            return ('IF', cond, then_block, else_block)
 
-    <button onclick="showSteps()">اظهر خطوات صناعة اللعبة</button>
+        # while statement: while (expr) { block }
+        if tok.type == 'WHILE':
+            self.eat('WHILE')
+            if self.cur().type == 'LPAREN': self.eat('LPAREN')
+            c
 
-    <div id="steps">
-      <h3>الخطوات الأساسية:</h3>
-      <ol>
-        <li>📌 <strong>فكرة اللعبة</strong> — نحدد نوع اللعبة.</li>
-        <li>📌 <strong>تصميم الشخصيات</strong> — رسم الشخصيات والبيئة.</li>
-        <li>📌 <strong>البرمجة</strong> — نخلي الأشياء تتحرك وتتفاعل.</li>
-        <li>📌 <strong>الصوتيات</strong> — نضيف موسيقى وتأثيرات.</li>
-        <li>📌 <strong>الاختبار</strong> — نصلّح الأخطاء.</li>
-        <li>📌 <strong>النشر</strong> — ننشر اللعبة للناس.</li>
-      </ol>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>معلومات مهمة عن محركات الألعاب 🎮</h2>
-    <ul>
-      <li>🔥 <strong>Unity</strong> — أسهل محرك للطلاب والمبتدئين.</li>
-      <li>⚡ <strong>Unreal Engine</strong> — للألعاب القوية والجرافيكس العالي.</li>
-      <li>🧱 <strong>Godot</strong> — مفتوح المصدر وممتاز للتعلم.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>اختبار بسيط (Quiz) للطلاب</h2>
-    <div class="quiz-box">
-      <p>❓ شنو أول خطوة بصناعة اللعبة؟</p>
-      <select id="quiz">
-        <option value="none">اختر جواب</option>
-        <option value="bad1">البرمجة</option>
-        <option value="bad2">الصوتيات</option>
-        <option value="good">اختيار فكرة اللعبة</option>
-      </select>
-      <br><br>
-      <button onclick="checkQuiz()">تحقق من الجواب</button>
-      <div id="quiz-result" class="result"></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>نصيحة من كرار & عباس ⭐</h2>
-    <p>إذا تحب تصنع لعبة، بلّش بشي بسيط. لا تسوي لعبة ضخمة من أول يوم… خطوة خطوة، وراح توصل.</p>
-  </div>
-
-</div>
-
-<script>
-  function showSteps() {
-    const s = document.getElementById("steps");
-    s.style.display = (s.style.display === "none") ? "block" : "none";
-  }
-
-  function checkQuiz() {
-    const answer = document.getElementById("quiz").value;
-    const result = document.getElementById("quiz-result");
-
-    if (answer === "good") {
-      result.style.color = "green";
-      result.innerHTML = "✔️ جواب صحيح! أول خطوة هي فكرة اللعبة";
-    } else if (answer === "none") {
-      result.style.color = "black";
-      result.innerHTML = "اختار جواب أول 😊";
-    } else {
-      result.style.color = "red";
-      result.innerHTML = "❌ غلط… أول خطوة هي اختيار فكرة اللعبة.";
-    }
-  }
-</script>
-
-</body>
-</html>
