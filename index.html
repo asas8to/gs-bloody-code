@@ -1,177 +1,107 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>شلون نسوي الألعاب | إعداد:  كرار حيدر — عباس علاء</title>
+<meta charset="UTF-8">
+<title>برنامج تعليم البرمجة</title>
 
-  <style>
-    body {
-      font-family: Tahoma, sans-serif;
-      direction: rtl;
-      background: #e9eef3;
-      margin: 0;
-      padding: 0;
-      color: #222;
-    }
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg,#0f0f0f,#1c1c1c);
+    color: white;
+    text-align: center;
+}
 
-    /* الهيدر */
-    header {
-      background: #0a74d3;
-      padding: 15px;
-      color: white;
-      text-align: center;
-      font-size: 22px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-    }
+/* شريط علوي */
+header {
+    background: #000;
+    padding: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 0 10px #00ffcc;
+}
 
-    .container {
-      padding: 20px;
-    }
+/* أزرار */
+.buttons {
+    margin: 20px;
+}
+button {
+    background: #00ffcc;
+    border: none;
+    padding: 12px 20px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+button:hover {
+    background: #00ccaa;
+}
 
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-      animation: fadeIn 0.7s;
-    }
+/* صندوق المحتوى */
+.box {
+    background: #1a1a1a;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #00ffcc44;
+}
 
-    h1, h2 {
-      color: #333;
-    }
-
-    /* أزرار */
-    button {
-      padding: 10px 20px;
-      background: #0a74d3;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 8px;
-      font-size: 16px;
-      transition: 0.2s;
-    }
-
-    button:hover {
-      background: #0859a1;
-      transform: scale(1.05);
-    }
-
-    /* صندوق الخطوات */
-    #steps {
-      margin-top: 10px;
-      padding: 10px;
-      background: #fff8d6;
-      border-radius: 10px;
-      display: none;
-      animation: fadeIn 0.8s;
-    }
-
-    /* كويز */
-    .quiz-box {
-      background: #f4fbff;
-      padding: 15px;
-      border-radius: 10px;
-    }
-
-    .result {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+/* فيديو */
+iframe {
+    width: 100%;
+    height: 350px;
+    border-radius: 12px;
+    border: none;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  🌟 موقع تعليمي — صناعة الألعاب | إعداد: كرار حيدر & عباس علاء 🌟
+📘 برنامج تعليم لغات البرمجة
 </header>
 
-<div class="container">
+<div class="buttons">
+<button onclick="showHTML()">HTML</button>
+<button onclick="showPython()">Python</button>
+<button onclick="showJS()">JavaScript</button>
+</div>
 
-  <div class="card">
-    <h1>شلون نسوي لعبة؟</h1>
-    <p>إعداد الطلاب: <strong>كرار حيدر — عباس علاء</strong></p>
-  </div>
-
-  <div class="card">
-    <h2>شرح مبسط عن صناعة الألعاب:</h2>
-    <p>صناعة الألعاب بيها مراحل واضحة، وكل مرحلة تعتمد عالثانية، ولتسهيل الموضوع سوينا شرح بسيط يفيد الطلاب والمعلمين.</p>
-
-    <button onclick="showSteps()">اظهر خطوات صناعة اللعبة</button>
-
-    <div id="steps">
-      <h3>الخطوات الأساسية:</h3>
-      <ol>
-        <li>📌 <strong>فكرة اللعبة</strong> — نحدد نوع اللعبة.</li>
-        <li>📌 <strong>تصميم الشخصيات</strong> — رسم الشخصيات والبيئة.</li>
-        <li>📌 <strong>البرمجة</strong> — نخلي الأشياء تتحرك وتتفاعل.</li>
-        <li>📌 <strong>الصوتيات</strong> — نضيف موسيقى وتأثيرات.</li>
-        <li>📌 <strong>الاختبار</strong> — نصلح الأخطاء.</li>
-        <li>📌 <strong>النشر</strong> — ننشر اللعبة للناس.</li>
-      </ol>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>معلومات مهمة عن محركات الألعاب 🎮</h2>
-    <ul>
-      <li>🔥 <strong>Unity</strong> — أسهل محرك للطلاب والمبتدئين.</li>
-      <li>⚡ <strong>Unreal Engine</strong> — للألعاب القوية والجرافيكس العالي.</li>
-      <li>🧱 <strong>Godot</strong> — مفتوح المصدر وممتاز للتعلم.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>اختبار بسيط (Quiz) للطلاب</h2>
-    <div class="quiz-box">
-      <p>❓ شنو أول خطوة بصناعة اللعبة؟</p>
-      <select id="quiz">
-        <option value="none">اختر جواب</option>
-        <option value="bad1">البرمجة</option>
-        <option value="bad2">الصوتيات</option>
-        <option value="good">اختيار فكرة اللعبة</option>
-      </select>
-      <br><br>
-      <button onclick="checkQuiz()">تحقق من الجواب</button>
-      <div id="quiz-result" class="result"></div>
-    </div>
-  </div>
-
-  <div class="card">
- <h2>نصيحة من كرار & عباس ⭐</h2>
-    <p>إذا تحب تصنع لعبة، بلش بشي بسيط. لا تسوي لعبة ضخمة من أول يوم… خطوة خطوة، وراح توصل.</p>
-  </div>
-
+<div class="box" id="content">
+<h2>اختر لغة برمجة 👆</h2>
+<p>وتعلّم من الفيديو داخل البرنامج</p>
 </div>
 
 <script>
-  function showSteps() {
-    const s = document.getElementById("steps");
-    s.style.display = (s.style.display === "none") ? "block" : "none";
-  }
+function showHTML() {
+    document.getElementById("content").innerHTML = `
+    <h2>HTML</h2>
+    <p>لغة بناء وتصميم مواقع الإنترنت</p>
+    <iframe src="https://www.youtube.com/embed/qz0aGYrrlhU"></iframe>
+    `;
+}
 
-  function checkQuiz() {
-    const answer = document.getElementById("quiz").value;
-    const result = document.getElementById("quiz-result");
+function showPython() {
+    document.getElementById("content").innerHTML = `
+    <h2>Python</h2>
+    <p>لغة سهلة وقوية للبرامج والألعاب</p>
+    <iframe src="https://www.youtube.com/embed/_uQrJ0TkZlc"></iframe>
+    `;
+}
 
-    if (answer === "good") {
-      result.style.color = "green";
-      result.innerHTML = "✔️ جواب صحيح! أول شي هي فكرة اللعبة";
-    } else if (answer === "none") {
-      result.style.color = "black";
-      result.innerHTML = "اختار جواب أول ";
-    } else {
-      result.style.color = "red";
-      result.innerHTML = "❌ غلط… أول خطوة هي اختيار فكرة اللعبة.";
-    }
-  }
+function showJS() {
+    document.getElementById("content").innerHTML = `
+    <h2>JavaScript</h2>
+    <p>لغة تخلي المواقع تتحرك وتتفاعل</p>
+    <iframe src="https://www.youtube.com/embed/hdI2bqOjy3c"></iframe>
+    `;
+}
 </script>
 
 </body>
