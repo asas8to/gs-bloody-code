@@ -2,61 +2,60 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>برنامج تعليم البرمجة</title>
+<title>منصة احترافية لتعليم برمجة المواقع</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: linear-gradient(135deg,#0f0f0f,#1c1c1c);
-    color: white;
-    text-align: center;
+body{
+    margin:0;
+    font-family:Tahoma;
+    background:#0b0b0b;
+    color:#fff;
 }
-
-/* شريط علوي */
-header {
-    background: #000;
-    padding: 15px;
-    font-size: 22px;
-    font-weight: bold;
-    box-shadow: 0 0 10px #00ffcc;
+header{
+    background:#000;
+    padding:20px;
+    text-align:center;
+    font-size:24px;
+    box-shadow:0 0 20px #00ff99;
 }
-
-/* أزرار */
-.buttons {
-    margin: 20px;
+nav{
+    background:#111;
+    padding:15px;
+    text-align:center;
 }
-button {
-    background: #00ffcc;
-    border: none;
-    padding: 12px 20px;
-    margin: 5px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
+nav button{
+    background:#00ff99;
+    border:none;
+    padding:12px 18px;
+    margin:5px;
+    font-size:15px;
+    font-weight:bold;
+    border-radius:6px;
+    cursor:pointer;
 }
-button:hover {
-    background: #00ccaa;
+nav button:hover{
+    background:#00cc77;
 }
-
-/* صندوق المحتوى */
-.box {
-    background: #1a1a1a;
-    padding: 20px;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 800px;
-    border-radius: 15px;
-    box-shadow: 0 0 15px #00ffcc44;
+section{
+    max-width:900px;
+    margin:30px auto;
+    background:#151515;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 20px #00ff9944;
 }
-
-/* فيديو */
-iframe {
-    width: 100%;
-    height: 350px;
-    border-radius: 12px;
-    border: none;
+iframe{
+    width:100%;
+    height:400px;
+    border:none;
+    border-radius:12px;
+}
+h2{
+    color:#00ff99;
+}
+p{
+    font-size:17px;
+    line-height:1.7;
 }
 </style>
 </head>
@@ -64,43 +63,64 @@ iframe {
 <body>
 
 <header>
-📘 برنامج تعليم لغات البرمجة
+🚀 منصة احترافية لتعليم برمجة المواقع
 </header>
 
-<div class="buttons">
-<button onclick="showHTML()">HTML</button>
-<button onclick="showPython()">Python</button>
-<button onclick="showJS()">JavaScript</button>
-</div>
+<nav>
+<button onclick="html()">HTML</button>
+<button onclick="css()">CSS</button>
+<button onclick="js()">JavaScript</button>
+<button onclick="project()">مشروع موقع كامل</button>
+</nav>
 
-<div class="box" id="content">
-<h2>اختر لغة برمجة 👆</h2>
-<p>وتعلّم من الفيديو داخل البرنامج</p>
-</div>
+<section id="content">
+<h2>ابدأ تعلم البرمجة من الصفر</h2>
+<p>
+هنا راح تتعلم شلون تبني موقع قوي واحترافي خطوة خطوة
+من HTML إلى JavaScript مع تطبيق عملي.
+</p>
+</section>
 
 <script>
-function showHTML() {
-    document.getElementById("content").innerHTML = `
-    <h2>HTML</h2>
-    <p>لغة بناء وتصميم مواقع الإنترنت</p>
-    <iframe src="https://www.youtube.com/embed/qz0aGYrrlhU"></iframe>
-    `;
+function html(){
+document.getElementById("content").innerHTML=`
+<h2>HTML – أساس بناء الموقع</h2>
+<p>
+HTML هي الهيكل الأساسي لأي موقع. بدونها ماكو موقع.
+راح تتعلم العناوين، الفقرات، الصور، الروابط.
+</p>
+<iframe src="https://www.youtube.com/embed/6QAELgirvjs"></iframe>
+`;
 }
 
-function showPython() {
-    document.getElementById("content").innerHTML = `
-    <h2>Python</h2>
-    <p>لغة سهلة وقوية للبرامج والألعاب</p>
-    <iframe src="https://www.youtube.com/embed/_uQrJ0TkZlc"></iframe>
-    `;
+function css(){
+document.getElementById("content").innerHTML=`
+<h2>CSS – تصميم الموقع</h2>
+<p>
+CSS تخلي موقعك قوي شكلاً: ألوان، خطوط، ترتيب، احتراف.
+</p>
+<iframe src="https://www.youtube.com/embed/1Rs2ND1ryYc"></iframe>
+`;
 }
 
-function showJS() {
-    document.getElementById("content").innerHTML = `
-    <h2>JavaScript</h2>
-    <p>لغة تخلي المواقع تتحرك وتتفاعل</p>
-    <iframe src="https://www.youtube.com/embed/hdI2bqOjy3c"></iframe>
-    `;
+function js(){
+document.getElementById("content").innerHTML=`
+<h2>JavaScript – قوة الموقع</h2>
+<p>
+JavaScript تخلي الموقع يتفاعل: أزرار، تنبيهات، حركات.
+</p>
+<iframe src="https://www.youtube.com/embed/PkZNo7MFNFg"></iframe>
+`;
+}
+
+function project(){
+document.getElementById("content").innerHTML=`
+<h2>مشروع: إنشاء موقع احترافي كامل</h2>
+<p>
+بهذا الدرس راح تطبق كلشي تعلمته وتسوي موقع حقيقي من الصفر.
+</p>
+<iframe src="https://www.youtube.com/embed/mU6anWqZJcc"></iframe>
+`;
 }
 </script>
 
