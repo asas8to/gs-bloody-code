@@ -1,127 +1,243 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>منصة احترافية لتعليم برمجة المواقع</title>
-
-<style>
-body{
-    margin:0;
-    font-family:Tahoma;
-    background:#0b0b0b;
-    color:#fff;
-}
-header{
-    background:#000;
-    padding:20px;
-    text-align:center;
-    font-size:24px;
-    box-shadow:0 0 20px #00ff99;
-}
-nav{
-    background:#111;
-    padding:15px;
-    text-align:center;
-}
-nav button{
-    background:#00ff99;
-    border:none;
-    padding:12px 18px;
-    margin:5px;
-    font-size:15px;
-    font-weight:bold;
-    border-radius:6px;
-    cursor:pointer;
-}
-nav button:hover{
-    background:#00cc77;
-}
-section{
-    max-width:900px;
-    margin:30px auto;
-    background:#151515;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 0 20px #00ff9944;
-}
-iframe{
-    width:100%;
-    height:400px;
-    border:none;
-    border-radius:12px;
-}
-h2{
-    color:#00ff99;
-}
-p{
-    font-size:17px;
-    line-height:1.7;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة FOLLOWER-BOTS لشحن المتابعين</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #09090e;
+            color: #fff;
+        }
+        header {
+            background: #11111b;
+            padding: 20px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            border-bottom: 2px solid #8a2be2;
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+        }
+        /* شريط النقاط العلوي */
+        .points-bar {
+            background: #161623;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #00ffcc;
+            border-bottom: 1px solid #222;
+        }
+        .points-bar span {
+            background: #8a2be2;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-right: 8px;
+        }
+        nav {
+            background: #11111b;
+            padding: 15px;
+            text-align: center;
+        }
+        nav button {
+            background: transparent;
+            border: 2px solid #8a2be2;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        nav button:hover, nav button.active {
+            background: #8a2be2;
+            box-shadow: 0 0 10px #8a2be2;
+        }
+        section {
+            max-width: 800px;
+            margin: 30px auto;
+            background: #12121f;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #222;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        h2 {
+            color: #8a2be2;
+            margin-top: 0;
+        }
+        p {
+            font-size: 16px;
+            color: #b3b3b3;
+            line-height: 1.6;
+        }
+        /* كروت المهام والخدمات */
+        .card {
+            background: #1c1c2e;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-right: 4px solid #8a2be2;
+        }
+        .card-info h3 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
+        }
+        .card-info p {
+            margin: 0;
+            font-size: 14px;
+            color: #aaa;
+        }
+        .btn-action {
+            background: #00ffcc;
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .btn-action:hover {
+            background: #00ccaa;
+        }
+        .input-group {
+            margin-top: 15px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            background: #1c1c2e;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
-
 <body>
 
 <header>
-🚀 منصة احترافية لتعليم برمجة المواقع
+    🤖 منصة FOLLOWER-BOTS لتبادل المتابعين
 </header>
 
+<div class="points-bar">
+    رصيد نقاطك الحالي: <span id="user-points">10</span> نقاط
+</div>
+
 <nav>
-<button onclick="html()">HTML</button>
-<button onclick="css()">CSS</button>
-<button onclick="js()">JavaScript</button>
-<button onclick="project()">مشروع موقع كامل</button>
+    <button onclick="showTasks()" id="btn-tasks" class="active">💰 تجميع النقاط (المهام)</button>
+    <button onclick="showStore()" id="btn-store">🚀 رشق المتابعين (المتجر)</button>
 </nav>
 
 <section id="content">
-<h2>ابدأ تعلم البرمجة من الصفر</h2>
-<p>
-هنا راح تتعلم شلون تبني موقع قوي واحترافي خطوة خطوة
-من HTML إلى JavaScript مع تطبيق عملي.
-</p>
-</section>
+    </section>
 
 <script>
-function html(){
-document.getElementById("content").innerHTML=`
-<h2>HTML – أساس بناء الموقع</h2>
-<p>
-HTML هي الهيكل الأساسي لأي موقع. بدونها ماكو موقع.
-راح تتعلم العناوين، الفقرات، الصور، الروابط.
-</p>
-<iframe src="https://www.youtube.com/embed/6QAELgirvjs"></iframe>
-`;
+// رصيد النقاط الافتراضي للمستخدم
+let points = 10;
+
+// تحديث الشاشة لعرض النقاط الحالية
+function updatePointsDisplay() {
+    document.getElementById("user-points").innerText = points;
 }
 
-function css(){
-document.getElementById("content").innerHTML=`
-<h2>CSS – تصميم الموقع</h2>
-<p>
-CSS تخلي موقعك قوي شكلاً: ألوان، خطوط، ترتيب، احتراف.
-</p>
-<iframe src="https://www.youtube.com/embed/1Rs2ND1ryYc"></iframe>
-`;
+// عرض صفحة تجميع النقاط (المهام)
+function showTasks() {
+    document.getElementById("btn-tasks").classList.add("active");
+    document.getElementById("btn-store").classList.remove("active");
+
+    document.getElementById("content").innerHTML = `
+        <h2>💰 نفّذ المهام واجمع النقاط مجاناً</h2>
+        <p>قم بمشاهدة الفيديوهات أو متابعة الحسابات لتحصل على نقاط فورية في حسابك:</p>
+        
+        <div class="card">
+            <div class="card-info">
+                <h3>شاهد فيديو يوتيوب لمدة 30 ثانية</h3>
+                <p>الجائزة: +5 نقاط</p>
+            </div>
+            <button class="btn-action" onclick="doTask(5, 'https://youtube.com')">ابدأ المهمة</button>
+        </div>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>تابع هذا الحساب على تيك توك</h3>
+                <p>الجائزة: +3 نقاط</p>
+            </div>
+            <button class="btn-action" onclick="doTask(3, 'https://tiktok.com')">متابعة الآن</button>
+        </div>
+    `;
 }
 
-function js(){
-document.getElementById("content").innerHTML=`
-<h2>JavaScript – قوة الموقع</h2>
-<p>
-JavaScript تخلي الموقع يتفاعل: أزرار، تنبيهات، حركات.
-</p>
-<iframe src="https://www.youtube.com/embed/PkZNo7MFNFg"></iframe>
-`;
+// عرض صفحة شراء المتابعين بالنقاط
+function showStore() {
+    document.getElementById("btn-store").classList.add("active");
+    document.getElementById("btn-tasks").classList.remove("active");
+
+    document.getElementById("content").innerHTML = `
+        <h2>🚀 استبدل نقاطك بمتابعين حقيقيين وبوتات</h2>
+        <p>كل 1 نقطة تمنحك 1 متابع لحسابك. اختر المنصة وضع رابط حسابك:</p>
+        
+        <div class="input-group">
+            <label>ضع رابط قناتك أو حسابك:</label>
+            <input type="text" id="account-link" placeholder="https://youtube.com/c/yourchannel">
+            
+            <label>عدد المتابعين المطلوب (كل متابع بـ 1 نقطة):</label>
+            <input type="number" id="followers-count" min="1" value="10">
+        </div>
+
+        <button class="btn-action" style="width:100%; padding:15px; font-size:16px; background:#8a2be2; color:white;" onclick="buyFollowers()">
+            تفعيل البوتات ورشق المتابعين الآن
+        </button>
+    `;
 }
 
-function project(){
-document.getElementById("content").innerHTML=`
-<h2>مشروع: إنشاء موقع احترافي كامل</h2>
-<p>
-بهذا الدرس راح تطبق كلشي تعلمته وتسوي موقع حقيقي من الصفر.
-</p>
-<iframe src="https://www.youtube.com/embed/mU6anWqZJcc"></iframe>
-`;
+// دالة تنفيذ المهمة وزيادة النقاط
+function doTask(reward, url) {
+    // فتح رابط المنصة في نافذة جديدة ليقوم المستخدم بالمهمة
+    window.open(url, '_blank');
+    
+    // إضافة النقاط للمستخدم
+    points += reward;
+    updatePointsDisplay();
+    alert(`أحسنت! تمت إضافة +${reward} نقاط إلى رصيدك بنجاح.`);
 }
+
+// دالة شراء المتابعين وخصم النقاط
+function buyFollowers() {
+    let link = document.getElementById("account-link").value;
+    let count = parseInt(document.getElementById("followers-count").value);
+
+    if (!link) {
+        alert("الرجاء إدخال رابط الحساب أولاً!");
+        return;
+    }
+
+    if (isNaN(count) || count <= 0) {
+        alert("الرجاء إدخال عدد متابعين صحيح!");
+        return;
+    }
+
+    if (points >= count) {
+        // خصم النقاط
+        points -= count;
+        updatePointsDisplay();
+        alert(`نجاح العملية! تم إرسال طلبك لتزويد ${count} متابع إلى الرابط المذكور. ستكتمل العملية خلال دقائق عبر البوتات.`);
+    } else {
+        alert(`عذراً، رصيدك غير كافٍ! تحتاج إلى ${count} نقطة، ورصيدك الحالي هو ${points} نقطة فقط. اذهب لتجميع النقاط أولاً.`);
+    }
+}
+
+// تشغيل صفحة المهام تلقائياً عند فتح الموقع لأول مرة
+showTasks();
 </script>
 
 </body>
