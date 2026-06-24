@@ -3,240 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة FOLLOWER-BOTS لشحن المتابعين</title>
+    <title>منصة أقوى مبرمج فري فاير - شحن مجاني</title>
     <style>
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Tahoma, Geneva, Verdana, sans-serif;
             background: #09090e;
             color: #fff;
+            text-align: center;
         }
         header {
             background: #11111b;
-            padding: 20px;
-            text-align: center;
-            font-size: 26px;
+            padding: 25px;
+            font-size: 24px;
             font-weight: bold;
-            border-bottom: 2px solid #8a2be2;
-            box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+            border-bottom: 3px solid #ff0055;
+            text-shadow: 0 0 10px #ff0055;
         }
-        /* شريط النقاط العلوي */
         .points-bar {
             background: #161623;
-            padding: 10px 20px;
-            text-align: center;
+            padding: 12px;
             font-size: 18px;
-            font-weight: bold;
             color: #00ffcc;
             border-bottom: 1px solid #222;
         }
         .points-bar span {
-            background: #8a2be2;
+            background: #ff0055;
             color: white;
-            padding: 4px 12px;
+            padding: 3px 12px;
             border-radius: 20px;
-            margin-right: 8px;
-        }
-        nav {
-            background: #11111b;
-            padding: 15px;
-            text-align: center;
         }
         nav button {
             background: transparent;
-            border: 2px solid #8a2be2;
+            border: 2px solid #ff0055;
             color: #fff;
-            padding: 10px 20px;
-            margin: 5px;
-            font-size: 15px;
+            padding: 12px 25px;
+            margin: 10px 5px;
+            font-size: 16px;
             font-weight: bold;
             border-radius: 8px;
             cursor: pointer;
             transition: 0.3s;
         }
-        nav button:hover, nav button.active {
-            background: #8a2be2;
-            box-shadow: 0 0 10px #8a2be2;
+        nav button.active, nav button:hover {
+            background: #ff0055;
+            box-shadow: 0 0 15px #ff0055;
         }
         section {
-            max-width: 800px;
-            margin: 30px auto;
+            max-width: 750px;
+            margin: 20px auto;
             background: #12121f;
-            padding: 25px;
+            padding: 30px;
             border-radius: 15px;
             border: 1px solid #222;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
-        h2 {
-            color: #8a2be2;
-            margin-top: 0;
-        }
-        p {
-            font-size: 16px;
-            color: #b3b3b3;
-            line-height: 1.6;
-        }
-        /* كروت المهام والخدمات */
         .card {
             background: #1c1c2e;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-right: 4px solid #8a2be2;
-        }
-        .card-info h3 {
-            margin: 0 0 5px 0;
-            font-size: 18px;
-        }
-        .card-info p {
-            margin: 0;
-            font-size: 14px;
-            color: #aaa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-right: 5px solid #00ffcc;
         }
         .btn-action {
             background: #00ffcc;
             color: #000;
             border: none;
-            padding: 8px 16px;
+            padding: 12px 25px;
             font-weight: bold;
-            border-radius: 6px;
+            font-size: 16px;
+            border-radius: 8px;
             cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
         }
-        .btn-action:hover {
-            background: #00ccaa;
+        .btn-action:disabled {
+            background: #444;
+            color: #888;
+            cursor: not-allowed;
         }
-        .input-group {
-            margin-top: 15px;
-        }
-        .input-group input {
+        input {
             width: 100%;
             padding: 12px;
             background: #1c1c2e;
             border: 1px solid #444;
             color: #fff;
             border-radius: 8px;
+            margin-bottom: 15px;
             box-sizing: border-box;
-            margin-bottom: 10px;
+            text-align: center;
+        }
+        #timer-box {
+            font-size: 20px;
+            color: #ffcc00;
+            margin-top: 10px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
 <header>
-    🤖 منصة FOLLOWER-BOTS لتبادل المتابعين
+    🔥 منصة أقوى مبرمج فري فاير لشحن المتابعين مجاناً بـ البوتات
 </header>
 
 <div class="points-bar">
-    رصيد نقاطك الحالي: <span id="user-points">10</span> نقاط
+    رصيدك الحالي: <span id="user-points">0</span> نقطة
 </div>
 
 <nav>
-    <button onclick="showTasks()" id="btn-tasks" class="active">💰 تجميع النقاط (المهام)</button>
-    <button onclick="showStore()" id="btn-store">🚀 رشق المتابعين (المتجر)</button>
+    <button onclick="showTasks()" id="btn-tasks" class="active">💰 تجمع نقاط (مشاهدة وإعلان)</button>
+    <button onclick="showStore()" id="btn-store">🚀 رشق المتابعين في قناتك</button>
 </nav>
 
 <section id="content">
     </section>
 
 <script>
-// رصيد النقاط الافتراضي للمستخدم
-let points = 10;
+let points = 0;
+let isWatching = false;
 
-// تحديث الشاشة لعرض النقاط الحالية
-function updatePointsDisplay() {
-    document.getElementById("user-points").innerText = points;
-}
+// رابط قناتك الحقيقي من الصورة لفتحه للمستخدمين
+const myYoutubeChannel = "https://www.youtube.com/channel/UC1RyqPzuquA2fdcZ31bSTvw"; 
 
-// عرض صفحة تجميع النقاط (المهام)
 function showTasks() {
-    document.getElementById("btn-tasks").classList.add("active");
-    document.getElementById("btn-store").classList.remove("active");
+    document.getElementById("btn-tasks").className = "active";
+    document.getElementById("btn-store").className = "";
 
     document.getElementById("content").innerHTML = `
-        <h2>💰 نفّذ المهام واجمع النقاط مجاناً</h2>
-        <p>قم بمشاهدة الفيديوهات أو متابعة الحسابات لتحصل على نقاط فورية في حسابك:</p>
+        <h2>🎁 اجمع النقاط لدعم قناتك</h2>
+        <p>شاهد فيديو مبرمج فري فاير لمدة 30 ثانية كاملة لفتح الروابط والحصول على +10 نقاط!</p>
         
         <div class="card">
-            <div class="card-info">
-                <h3>شاهد فيديو يوتيوب لمدة 30 ثانية</h3>
-                <p>الجائزة: +5 نقاط</p>
-            </div>
-            <button class="btn-action" onclick="doTask(5, 'https://youtube.com')">ابدأ المهمة</button>
-        </div>
-
-        <div class="card">
-            <div class="card-info">
-                <h3>تابع هذا الحساب على تيك توك</h3>
-                <p>الجائزة: +3 نقاط</p>
-            </div>
-            <button class="btn-action" onclick="doTask(3, 'https://tiktok.com')">متابعة الآن</button>
+            <h3>شاهد الإعلان والفيديو لدعم البوتات</h3>
+            <p>يجب عدم إغلاق النافذة حتى ينتهي العداد لكي تُحسب النقاط.</p>
+            <div id="timer-box"></div>
+            <button class="btn-action" id="start-btn" onclick="startWatchTask()">اضغط هنا لبدء المشاهدة والإعلان (30 ثانية)</button>
         </div>
     `;
 }
 
-// عرض صفحة شراء المتابعين بالنقاط
 function showStore() {
-    document.getElementById("btn-store").classList.add("active");
-    document.getElementById("btn-tasks").classList.remove("active");
+    document.getElementById("btn-store").className = "active";
+    document.getElementById("btn-tasks").className = "";
 
     document.getElementById("content").innerHTML = `
-        <h2>🚀 استبدل نقاطك بمتابعين حقيقيين وبوتات</h2>
-        <p>كل 1 نقطة تمنحك 1 متابع لحسابك. اختر المنصة وضع رابط حسابك:</p>
+        <h2>🚀 اطلب المتابعين الحقيقيين الآن</h2>
+        <p>كل 10 نقاط تمنحك مشتركين حقيقيين من سيرفر البوتات الخاص بنا.</p>
         
-        <div class="input-group">
-            <label>ضع رابط قناتك أو حسابك:</label>
-            <input type="text" id="account-link" placeholder="https://youtube.com/c/yourchannel">
-            
-            <label>عدد المتابعين المطلوب (كل متابع بـ 1 نقطة):</label>
-            <input type="number" id="followers-count" min="1" value="10">
-        </div>
-
-        <button class="btn-action" style="width:100%; padding:15px; font-size:16px; background:#8a2be2; color:white;" onclick="buyFollowers()">
-            تفعيل البوتات ورشق المتابعين الآن
-        </button>
+        <input type="text" id="user-chan-link" placeholder="ضع رابط قناتك هنا">
+        <input type="number" id="req-count" placeholder="كم مشترك تريد؟" min="1">
+        
+        <button class="btn-action" style="background:#ff0055; color:#fff;" onclick="processOrder()">تفعيل رشق البوتات الآن</button>
     `;
 }
 
-// دالة تنفيذ المهمة وزيادة النقاط
-function doTask(reward, url) {
-    // فتح رابط المنصة في نافذة جديدة ليقوم المستخدم بالمهمة
-    window.open(url, '_blank');
+function startWatchTask() {
+    if(isWatching) return;
+    isWatching = true;
     
-    // إضافة النقاط للمستخدم
-    points += reward;
-    updatePointsDisplay();
-    alert(`أحسنت! تمت إضافة +${reward} نقاط إلى رصيدك بنجاح.`);
+    // فتح قناتك أو رابط إعلاني حقيقي لكسب المال والمشاهدات
+    window.open(myYoutubeChannel, '_blank');
+
+    let timeLeft = 30;
+    const btn = document.getElementById("start-btn");
+    const timerBox = document.getElementById("timer-box");
+    
+    btn.disabled = true;
+    
+    let countdown = setInterval(() => {
+        timeLeft--;
+        btn.innerText = `انتظر جاري التحقق من الإعلان والمشاهدة... (${timeLeft})`;
+        
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            points += 10;
+            document.getElementById("user-points").innerText = points;
+            btn.innerText = "اكتملت المهمة! حصلت على +10 نقاط";
+            timerBox.innerText = "🎉 تم إضافة النقاط بنجاح!";
+            isWatching = false;
+            btn.disabled = false;
+        }
+    }, 1000);
 }
 
-// دالة شراء المتابعين وخصم النقاط
-function buyFollowers() {
-    let link = document.getElementById("account-link").value;
-    let count = parseInt(document.getElementById("followers-count").value);
+function processOrder() {
+    let link = document.getElementById("user-chan-link").value;
+    let count = parseInt(document.getElementById("req-count").value);
 
-    if (!link) {
-        alert("الرجاء إدخال رابط الحساب أولاً!");
+    if(!link || !count) {
+        alert("تأكد من كتابة الرابط والعدد المطلوب!");
         return;
     }
 
-    if (isNaN(count) || count <= 0) {
-        alert("الرجاء إدخال عدد متابعين صحيح!");
+    if(points < count) {
+        alert(`نقاطك غير كافية! تحتاج إلى ${count} نقطة ورصيدك الحالي هو ${points}`);
         return;
     }
 
-    if (points >= count) {
-        // خصم النقاط
-        points -= count;
-        updatePointsDisplay();
-        alert(`نجاح العملية! تم إرسال طلبك لتزويد ${count} متابع إلى الرابط المذكور. ستكتمل العملية خلال دقائق عبر البوتات.`);
-    } else {
-        alert(`عذراً، رصيدك غير كافٍ! تحتاج إلى ${count} نقطة، ورصيدك الحالي هو ${points} نقطة فقط. اذهب لتجميع النقاط أولاً.`);
-    }
+    points -= count;
+    document.getElementById("user-points").innerText = points;
+    alert("🔥 تم ربط قناتك بنجاح في سيرفر البوتات! انتظر بدء الزيادة خلال 24 ساعة.");
 }
 
-// تشغيل صفحة المهام تلقائياً عند فتح الموقع لأول مرة
 showTasks();
 </script>
 
