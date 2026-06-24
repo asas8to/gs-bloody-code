@@ -115,22 +115,22 @@
 
     <div class="notice">
         <strong>⚠️ تنبيه هام لجميع المستخدمين:</strong><br>
-        النظام مدعوم ببوتات تحقق ذكية. أي محاولة لإلغاء الاشتراك بعد الحصول على النقاط ستؤدي إلى حظر حسابك نهائياً من لوحة التحكم (Panel) وحذف قناتك من السيرفر فوراً.
+        النظام مدعوم بمراقبة صعبة جداً. أي شخص يلغي اشتراكه أو يرسل صورة كذب سيتم تبنيده نهائياً وحذف قناته من السيرفر.
     </div>
 
     <div class="card">
         <h3>المهمة 1: الاشتراك في قناة أقوى مبرمج فري فاير (GHoS!)</h3>
-        <p>اضغط على الزر أدناه واشترك في القناة، ثم قم بأخذ لقطة شاشة (Screenshot) تثبت اشتراكك وأرسلها إلى بوت التحقق لتستلم نقاطك فوراً.</p>
-        <p><strong>🎁 الجائزة: +3 نقاط عن كل حساب تشترك به.</strong></p>
+        <p>اضغط على الزر الأحمر واشترك، ثم صور الشاشة إثبات واضغط على الزر الأزرق عشان ترسل الصورة في الديسكورد وتأخذ نقاطك.</p>
+        <p><strong>🎁 الجائزة: +3 نقاط.</strong></p>
         
         <center>
             <a href="https://www.youtube.com/channel/UC1RyqPzuquA2fdcZ31bSTvw" target="_blank" class="btn-link">
-                ➡️ اضغط هنا لفتح القناة والاشتراك
+                ➡️ 1️⃣ اضغط هنا لفتح القناة والاشتراك
             </a>
         </center>
         
-        <button class="btn-action" style="background: #ffcc00;" onclick="window.open('https://t.me/YourBotLinkHere', '_blank')">
-            🤖 اضغط هنا لإرسال الصورة إلى بوت التحقق في تليجرام
+        <button class="btn-action" style="background: #5865F2; color: white;" onclick="window.open('امسح_هذه_الجملة_وضع_رابط_الديسكورد_هنا', '_blank')">
+            🎮 2️⃣ اضغط هنا لفتح ديسكورد وإرسال صورة الإثبات
         </button>
     </div>
 
@@ -163,7 +163,6 @@
 let points = 0;
 let isTimerRunning = false;
 
-// دالة عداد البقاء في الصفحة
 function startStayTask() {
     if (isTimerRunning) return;
     isTimerRunning = true;
@@ -187,7 +186,6 @@ function startStayTask() {
     }, 1000);
 }
 
-// دالة طلب رشق المشتركين
 function orderSubs() {
     let link = document.getElementById("target-channel").value;
     let subs = parseInt(document.getElementById("req-subs").value);
@@ -197,7 +195,7 @@ function orderSubs() {
         return;
     }
 
-    let cost = subs * 3; // كل مشترك بـ 3 نقاط
+    let cost = subs * 3;
 
     if (points >= cost) {
         points -= cost;
