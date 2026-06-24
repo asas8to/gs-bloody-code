@@ -3,69 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة أقوى مبرمج فري فاير - شحن مجاني</title>
+    <title>منصة GHoS! لتبادل المشتركين الحقيقيين</title>
     <style>
         body {
             margin: 0;
             font-family: Tahoma, Geneva, Verdana, sans-serif;
-            background: #09090e;
+            background: #0d0d13;
             color: #fff;
             text-align: center;
         }
         header {
-            background: #11111b;
-            padding: 25px;
-            font-size: 24px;
-            font-weight: bold;
-            border-bottom: 3px solid #ff0055;
-            text-shadow: 0 0 10px #ff0055;
-        }
-        .points-bar {
-            background: #161623;
-            padding: 12px;
-            font-size: 18px;
-            color: #00ffcc;
-            border-bottom: 1px solid #222;
-        }
-        .points-bar span {
-            background: #ff0055;
-            color: white;
-            padding: 3px 12px;
-            border-radius: 20px;
-        }
-        nav button {
-            background: transparent;
-            border: 2px solid #ff0055;
-            color: #fff;
-            padding: 12px 25px;
-            margin: 10px 5px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        nav button.active, nav button:hover {
-            background: #ff0055;
-            box-shadow: 0 0 15px #ff0055;
-        }
-        section {
-            max-width: 750px;
-            margin: 20px auto;
             background: #12121f;
             padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #222;
+            font-size: 26px;
+            font-weight: bold;
+            border-bottom: 3px solid #00ffaa;
+            text-shadow: 0 0 15px #00ffaa;
+        }
+        .points-bar {
+            background: #1a1a2e;
+            padding: 15px;
+            font-size: 18px;
+            color: #ffcc00;
+            border-bottom: 1px solid #333;
+        }
+        .points-bar span {
+            background: #00ffaa;
+            color: #000;
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
         }
         .card {
-            background: #1c1c2e;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            border-right: 5px solid #00ffcc;
+            background: #161626;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 1px solid #333;
+            text-align: right;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #00ffaa;
+            font-size: 20px;
+        }
+        .btn-link {
+            background: #ff0055;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+            font-weight: bold;
+            margin: 10px 0;
         }
         .btn-action {
-            background: #00ffcc;
+            background: #00ffaa;
             color: #000;
             border: none;
             padding: 12px 25px;
@@ -81,131 +80,133 @@
             color: #888;
             cursor: not-allowed;
         }
-        input {
+        input, select {
             width: 100%;
             padding: 12px;
-            background: #1c1c2e;
+            background: #202035;
             border: 1px solid #444;
             color: #fff;
             border-radius: 8px;
             margin-bottom: 15px;
             box-sizing: border-box;
-            text-align: center;
         }
-        #timer-box {
-            font-size: 20px;
-            color: #ffcc00;
-            margin-top: 10px;
-            font-weight: bold;
+        .notice {
+            background: #2b1b1b;
+            border: 1px solid #ff3333;
+            padding: 15px;
+            border-radius: 8px;
+            color: #ff9999;
+            margin-bottom: 20px;
+            text-align: right;
         }
     </style>
 </head>
 <body>
 
 <header>
-    🔥 منصة أقوى مبرمج فري فاير لشحن المتابعين مجاناً بـ البوتات
+    🔥 منصة مبرمج فري فاير العالمية لتبادل المشتركين والبوتات الحقيقية
 </header>
 
 <div class="points-bar">
-    رصيدك الحالي: <span id="user-points">0</span> نقطة
+    رصيد نقاطك الحالي: <span id="user-points">0</span> نقطة
 </div>
 
-<nav>
-    <button onclick="showTasks()" id="btn-tasks" class="active">💰 تجمع نقاط (مشاهدة وإعلان)</button>
-    <button onclick="showStore()" id="btn-store">🚀 رشق المتابعين في قناتك</button>
-</nav>
+<div class="container">
 
-<section id="content">
-    </section>
+    <div class="notice">
+        <strong>⚠️ تنبيه هام لجميع المستخدمين:</strong><br>
+        النظام مدعوم ببوتات تحقق ذكية. أي محاولة لإلغاء الاشتراك بعد الحصول على النقاط ستؤدي إلى حظر حسابك نهائياً من لوحة التحكم (Panel) وحذف قناتك من السيرفر فوراً.
+    </div>
+
+    <div class="card">
+        <h3>المهمة 1: الاشتراك في قناة أقوى مبرمج فري فاير (GHoS!)</h3>
+        <p>اضغط على الزر أدناه واشترك في القناة، ثم قم بأخذ لقطة شاشة (Screenshot) تثبت اشتراكك وأرسلها إلى بوت التحقق لتستلم نقاطك فوراً.</p>
+        <p><strong>🎁 الجائزة: +3 نقاط عن كل حساب تشترك به.</strong></p>
+        
+        <center>
+            <a href="https://www.youtube.com/channel/UC1RyqPzuquA2fdcZ31bSTvw" target="_blank" class="btn-link">
+                ➡️ اضغط هنا لفتح القناة والاشتراك
+            </a>
+        </center>
+        
+        <button class="btn-action" style="background: #ffcc00;" onclick="window.open('https://t.me/YourBotLinkHere', '_blank')">
+            🤖 اضغط هنا لإرسال الصورة إلى بوت التحقق في تليجرام
+        </button>
+    </div>
+
+    <div class="card">
+        <h3>المهمة 2: تصفح الـ Panel والبقاء في الصفحة</h3>
+        <p>ابقَ داخل هذه الصفحة لتجهيز ملفات حماية البوتات وتحديث البيانات دون إغلاقها.</p>
+        <p><strong>🎁 الجائزة: +5 نقاط بعد انتهاء العداد.</strong></p>
+        
+        <button class="btn-action" id="time-btn" onclick="startStayTask()">اضغط هنا لتفعيل عداد البقاء في الصفحة (45 ثانية)</button>
+    </div>
+
+    <div class="card">
+        <h3>🚀 قسم رشق المشتركين الفوري (تفعيل البوتات)</h3>
+        <p>استبدل نقاطك الآن بمشتركين حقيقيين وبوتات يتم إرسالهم لقناتك فوراً وبشكل دائم.</p>
+        
+        <label>رابط قناتك على يوتيوب:</label>
+        <input type="text" id="target-channel" placeholder="https://www.youtube.com/channel/...">
+        
+        <label>عدد المشتركين المطلوبين:</label>
+        <input type="number" id="req-subs" placeholder="أدخل العدد (كل 3 نقاط = 1 مشترك حقيقي)" min="1">
+
+        <button class="btn-action" style="background: #00ffaa; color: #000;" onclick="orderSubs()">
+            تفعيل الرشق الفوري الآن 🚀
+        </button>
+    </div>
+
+</div>
 
 <script>
 let points = 0;
-let isWatching = false;
+let isTimerRunning = false;
 
-// رابط قناتك الحقيقي من الصورة لفتحه للمستخدمين
-const myYoutubeChannel = "https://www.youtube.com/channel/UC1RyqPzuquA2fdcZ31bSTvw"; 
-
-function showTasks() {
-    document.getElementById("btn-tasks").className = "active";
-    document.getElementById("btn-store").className = "";
-
-    document.getElementById("content").innerHTML = `
-        <h2>🎁 اجمع النقاط لدعم قناتك</h2>
-        <p>شاهد فيديو مبرمج فري فاير لمدة 30 ثانية كاملة لفتح الروابط والحصول على +10 نقاط!</p>
-        
-        <div class="card">
-            <h3>شاهد الإعلان والفيديو لدعم البوتات</h3>
-            <p>يجب عدم إغلاق النافذة حتى ينتهي العداد لكي تُحسب النقاط.</p>
-            <div id="timer-box"></div>
-            <button class="btn-action" id="start-btn" onclick="startWatchTask()">اضغط هنا لبدء المشاهدة والإعلان (30 ثانية)</button>
-        </div>
-    `;
-}
-
-function showStore() {
-    document.getElementById("btn-store").className = "active";
-    document.getElementById("btn-tasks").className = "";
-
-    document.getElementById("content").innerHTML = `
-        <h2>🚀 اطلب المتابعين الحقيقيين الآن</h2>
-        <p>كل 10 نقاط تمنحك مشتركين حقيقيين من سيرفر البوتات الخاص بنا.</p>
-        
-        <input type="text" id="user-chan-link" placeholder="ضع رابط قناتك هنا">
-        <input type="number" id="req-count" placeholder="كم مشترك تريد؟" min="1">
-        
-        <button class="btn-action" style="background:#ff0055; color:#fff;" onclick="processOrder()">تفعيل رشق البوتات الآن</button>
-    `;
-}
-
-function startWatchTask() {
-    if(isWatching) return;
-    isWatching = true;
+// دالة عداد البقاء في الصفحة
+function startStayTask() {
+    if (isTimerRunning) return;
+    isTimerRunning = true;
     
-    // فتح قناتك أو رابط إعلاني حقيقي لكسب المال والمشاهدات
-    window.open(myYoutubeChannel, '_blank');
-
-    let timeLeft = 30;
-    const btn = document.getElementById("start-btn");
-    const timerBox = document.getElementById("timer-box");
-    
+    let timeLeft = 45;
+    const btn = document.getElementById("time-btn");
     btn.disabled = true;
-    
-    let countdown = setInterval(() => {
+
+    let timer = setInterval(() => {
         timeLeft--;
-        btn.innerText = `انتظر جاري التحقق من الإعلان والمشاهدة... (${timeLeft})`;
+        btn.innerText = `جاري فحص اتصالك بالـ Panel... انتظر (${timeLeft} ثانية)`;
         
         if (timeLeft <= 0) {
-            clearInterval(countdown);
-            points += 10;
+            clearInterval(timer);
+            points += 5;
             document.getElementById("user-points").innerText = points;
-            btn.innerText = "اكتملت المهمة! حصلت على +10 نقاط";
-            timerBox.innerText = "🎉 تم إضافة النقاط بنجاح!";
-            isWatching = false;
+            btn.innerText = "🎉 تم التحقق بنجاح وإضافة +5 نقاط!";
             btn.disabled = false;
+            isTimerRunning = false;
         }
     }, 1000);
 }
 
-function processOrder() {
-    let link = document.getElementById("user-chan-link").value;
-    let count = parseInt(document.getElementById("req-count").value);
+// دالة طلب رشق المشتركين
+function orderSubs() {
+    let link = document.getElementById("target-channel").value;
+    let subs = parseInt(document.getElementById("req-subs").value);
 
-    if(!link || !count) {
-        alert("تأكد من كتابة الرابط والعدد المطلوب!");
+    if (!link || !subs) {
+        alert("الرجاء إدخال رابط قناتك وعدد المشتركين!");
         return;
     }
 
-    if(points < count) {
-        alert(`نقاطك غير كافية! تحتاج إلى ${count} نقطة ورصيدك الحالي هو ${points}`);
-        return;
-    }
+    let cost = subs * 3; // كل مشترك بـ 3 نقاط
 
-    points -= count;
-    document.getElementById("user-points").innerText = points;
-    alert("🔥 تم ربط قناتك بنجاح في سيرفر البوتات! انتظر بدء الزيادة خلال 24 ساعة.");
+    if (points >= cost) {
+        points -= cost;
+        document.getElementById("user-points").innerText = points;
+        alert(`🔥 تم قبول طلبك بنجاح! جاري توجيه البوتات الحقيقية لرشق ${subs} مشترك إلى قناتك فوراً.`);
+    } else {
+        alert(`عذراً! رصيدك غير كافٍ. تحتاج إلى ${cost} نقطة لإرسال ${subs} مشترك. رصيدك الحالي هو ${points} فقط.`);
+    }
 }
-
-showTasks();
 </script>
 
 </body>
