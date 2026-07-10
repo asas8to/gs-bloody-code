@@ -3,209 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة GHoS! لتبادل المشتركين الحقيقيين</title>
+    <title>تحميل وتشغيل لعبة فكر الجاسوس</title>
     <style>
         body {
             margin: 0;
-            font-family: Tahoma, Geneva, Verdana, sans-serif;
-            background: #0d0d13;
-            color: #fff;
-            text-align: center;
-        }
-        header {
-            background: #12121f;
-            padding: 30px;
-            font-size: 26px;
-            font-weight: bold;
-            border-bottom: 3px solid #00ffaa;
-            text-shadow: 0 0 15px #00ffaa;
-        }
-        .points-bar {
-            background: #1a1a2e;
-            padding: 15px;
-            font-size: 18px;
-            color: #ffcc00;
-            border-bottom: 1px solid #333;
-        }
-        .points-bar span {
-            background: #00ffaa;
-            color: #000;
-            padding: 4px 15px;
-            border-radius: 20px;
-            font-weight: bold;
+            padding: 0;
+            background-color: #1a1c23;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
         .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 20px;
+            text-align: center;
+            background: #2c3e50;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
+            border: 4px solid #e74c3c;
+            max-width: 400px;
+            width: 90%;
         }
-        .card {
-            background: #161626;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 25px;
-            border: 1px solid #333;
-            text-align: right;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        h1 {
+            color: #f1c40f;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(241, 196, 15, 0.3);
         }
-        .card h3 {
-            margin-top: 0;
-            color: #00ffaa;
-            font-size: 20px;
-        }
-        .btn-link {
-            background: #ff0055;
-            color: white;
-            padding: 12px 20px;
-            text-decoration: none;
-            border-radius: 8px;
-            display: inline-block;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-        .btn-action {
-            background: #00ffaa;
-            color: #000;
-            border: none;
-            padding: 12px 25px;
-            font-weight: bold;
+        p {
             font-size: 16px;
-            border-radius: 8px;
+            color: #bdc3c7;
+            line-height: 1.6;
+        }
+        .btn-play {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            padding: 15px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 12px;
+            border-bottom: 5px solid #c0392b;
+            margin-top: 25px;
+            transition: all 0.2s ease;
             cursor: pointer;
-            width: 100%;
-            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
         }
-        .btn-action:disabled {
-            background: #444;
-            color: #888;
-            cursor: not-allowed;
+        .btn-play:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(231, 76, 60, 0.6);
         }
-        input, select {
-            width: 100%;
-            padding: 12px;
-            background: #202035;
-            border: 1px solid #444;
-            color: #fff;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
+        .btn-play:active {
+            transform: translateY(3px);
+            border-bottom-width: 0;
         }
-        .notice {
-            background: #2b1b1b;
-            border: 1px solid #ff3333;
-            padding: 15px;
-            border-radius: 8px;
-            color: #ff9999;
-            margin-bottom: 20px;
-            text-align: right;
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #7f8c8d;
         }
     </style>
 </head>
 <body>
 
-<header>
-    🔥 منصة مبرمج فري فاير العالمية لتبادل المشتركين والبوتات الحقيقية
-</header>
-
-<div class="points-bar">
-    رصيد نقاطك الحالي: <span id="user-points">0</span> نقطة
-</div>
-
-<div class="container">
-
-    <div class="notice">
-        <strong>⚠️ تنبيه هام لجميع المستخدمين:</strong><br>
-        النظام مدعوم بمراقبة صعبة جداً. أي شخص يلغي اشتراكه أو يرسل صورة كذب سيتم تبنيده نهائياً وحذف قناته من السيرفر.
+    <div class="container">
+        <h1>🔥 فِـكـر الـجـاسـوس 🔥</h1>
+        <p>مرحباً بك في الموقع الرسمي للعبة! اضغط على الزر أدناه لتشغيل اللعبة فوراً على جوالك بدقة عالية وبدون حاجة للتحميل أو التثبيت!</p>
+        
+        <!-- هنا نربط اللعبة مباشرة لتفتح كصفحة ويب سريعة -->
+        <a href="game.html" class="btn-play">🎮 العب الآن فوراً 🎮</a>
+        
+        <div class="footer">تطوير وإعداد المبرمجة رتاج 🚀</div>
     </div>
-
-    <div class="card">
-        <h3>المهمة 1: الاشتراك في قناة أقوى مبرمج فري فاير (GHoS!)</h3>
-        <p>اضغط على الزر الأحمر واشترك، ثم صور الشاشة إثبات واضغط على الزر الأزرق عشان ترسل الصورة في الديسكورد وتأخذ نقاطك.</p>
-        <p><strong>🎁 الجائزة: +3 نقاط.</strong></p>
-        
-        <center>
-            <a href="https://www.youtube.com/@KAREZMA.COM111" target="_blank" class="btn-link">
-                ➡️ 1️⃣ اضغط هنا لفتح القناة والاشتراك
-            </a>
-        </center>
-        
-        <button class="btn-action" style="background: #5865F2; color: white;" onclick="window.open('https://discord.gg/sggyHPXA6', '_blank')">اضغط هنا لفتح ديسكورد وإرسال صورة الإثبات 🎮</button>
-            🎮 2️⃣ اضغط هنا لفتح ديسكورد وإرسال صورة الإثبات
-        </button>
-    </div>
-
-    <div class="card">
-        <h3>المهمة 2: تصفح الـ Panel والبقاء في الصفحة</h3>
-        <p>ابقَ داخل هذه الصفحة لتجهيز ملفات حماية البوتات وتحديث البيانات دون إغلاقها.</p>
-        <p><strong>🎁 الجائزة: +5 نقاط بعد انتهاء العداد.</strong></p>
-        
-        <button class="btn-action" id="time-btn" onclick="startStayTask()">اضغط هنا لتفعيل عداد البقاء في الصفحة (45 ثانية)</button>
-    </div>
-
-    <div class="card">
-        <h3>🚀 قسم رشق المشتركين الفوري (تفعيل البوتات)</h3>
-        <p>استبدل نقاطك الآن بمشتركين حقيقيين وبوتات يتم إرسالهم لقناتك فوراً وبشكل دائم.</p>
-        
-        <label>رابط قناتك على يوتيوب:</label>
-        <input type="text" id="target-channel" placeholder="https://www.youtube.com/channel/...">
-        
-        <label>عدد المشتركين المطلوبين:</label>
-        <input type="number" id="req-subs" placeholder="أدخل العدد (كل 3 نقاط = 1 مشترك حقيقي)" min="1">
-
-        <button class="btn-action" style="background: #00ffaa; color: #000;" onclick="orderSubs()">
-            تفعيل الرشق الفوري الآن 🚀
-        </button>
-    </div>
-
-</div>
-
-<script>
-let points = 0;
-let isTimerRunning = false;
-
-function startStayTask() {
-    if (isTimerRunning) return;
-    isTimerRunning = true;
-    
-    let timeLeft = 45;
-    const btn = document.getElementById("time-btn");
-    btn.disabled = true;
-
-    let timer = setInterval(() => {
-        timeLeft--;
-        btn.innerText = `جاري فحص اتصالك بالـ Panel... انتظر (${timeLeft} ثانية)`;
-        
-        if (timeLeft <= 0) {
-            clearInterval(timer);
-            points += 5;
-            document.getElementById("user-points").innerText = points;
-            btn.innerText = "🎉 تم التحقق بنجاح وإضافة +5 نقاط!";
-            btn.disabled = false;
-            isTimerRunning = false;
-        }
-    }, 1000);
-}
-
-function orderSubs() {
-    let link = document.getElementById("target-channel").value;
-    let subs = parseInt(document.getElementById("req-subs").value);
-
-    if (!link || !subs) {
-        alert("الرجاء إدخال رابط قناتك وعدد المشتركين!");
-        return;
-    }
-
-    let cost = subs * 3;
-
-    if (points >= cost) {
-        points -= cost;
-        document.getElementById("user-points").innerText = points;
-        alert(`🔥 تم قبول طلبك بنجاح! جاري توجيه البوتات الحقيقية لرشق ${subs} مشترك إلى قناتك فوراً.`);
-    } else {
-        alert(`عذراً! رصيدك غير كافٍ. تحتاج إلى ${cost} نقطة لإرسال ${subs} مشترك. رصيدك الحالي هو ${points} فقط.`);
-    }
-}
-</script>
 
 </body>
 </html>
