@@ -2,23 +2,194 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>لعبة فكر الجاسوس</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ال زوجتي رهيف ❤️</title>
     <style>
-        html, body {
-            margin: 0; padding: 0; width: 100%; height: 100%;
-            background-color: #1a1c23; overflow: hidden;
-            font-family: sans-serif;
+        /* إعدادات عامة */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #ffe6e6, #ffb3b3);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            flex-direction: column;
         }
-        iframe {
-            width: 100%; height: 100%; border: none;
+
+        /* تأثير القلوب المتحركة في الخلفية */
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -10px;
+            background-color: rgba(255, 0, 0, 0.4);
+            width: 20px;
+            height: 20px;
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 50% 75%, 18% 100%, 0% 38%);
+            animation: floatUp 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* الحاوية الرئيسية */
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+            border: 2px solid #ff4d4d;
+        }
+
+        h1 {
+            color: #d60000;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        p {
+            color: #555;
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* تصميم الدوائر الرومانسية (بدل الصور) */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .circle-item {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #ff4d4d;
+            box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em; /* حجم الرمز */
+            transition: transform 0.3s;
+        }
+
+        .circle-item:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* زر التفاعل */
+        .btn {
+            padding: 12px 30px;
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #d60000;
+            transform: translateY(-3px);
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #d60000;
+            font-weight: bold;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
 
-    <!-- اللعبة بتشتغل هنا داخل الموقع مباشرة وبشكل كامل ومناسب للجوال -->
-    <iframe src="game.html"></iframe>
+    <!-- تأثير القلوب -->
+    <div class="hearts" id="hearts-container"></div>
+
+    <div class="container">
+        <h1>إلج يا رهيف ❤️</h1>
+        <p>انتي الشخص الوحيد الي ارتاحيت له وحبيته كثير.</p>
+        
+        <!-- هنا وضعنا رموز ورود وقلوب بدل الصور -->
+        <div class="gallery">
+            <div class="circle-item">🌹</div>
+            <div class="circle-item">❤️</div>
+            <div class="circle-item">🌷</div>
+            <div class="circle-item">💖</div>
+        </div>
+
+        <button class="btn" onclick="showLove()">دوسي هنا شوفي شي  💌</button>
+        
+        <div class="hidden-message" id="loveMessage">
+            "احبج كلش هواي واتمنى نبقى مع بعض طول العمر. ❤️"
+        </div>
+    </div>
+
+    <script>
+        // كود لجعل القلوب تتحرك
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+            document.getElementById('hearts-container').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+        setInterval(createHeart, 300);
+
+        // كود لإظهار الرسالة المخفية
+        function showLove() {
+            const msg = document.getElementById('loveMessage');
+            if (msg.style.display === 'block') {
+                msg.style.display = 'none';
+            } else {
+                msg.style.display = 'block';
+            }
+        }
+    </script>
 
 </body>
 </html>
